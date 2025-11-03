@@ -180,50 +180,13 @@ Primary hosting is Cloudflare Pages. Configure your Pages project to run the bui
 
 ## Troubleshooting
 
-- **GLib-GObject-CRITICAL errors (sharp)**  
-  If you see errors like `can't peek value table for type '<invalid>'` when running `pnpm dev`, this is due to `sharp` native dependencies. Solutions:
-  
-  **Windows:**
-  1. **Reinstall sharp** (recommended):
-     ```bash
-     pnpm remove sharp
-     pnpm add -D sharp
-     ```
-  
-  2. **Clear pnpm cache and reinstall**:
-     ```bash
-     pnpm store prune
-     pnpm install
-     ```
-  
-  3. **Install Windows Build Tools** (if needed):
-     ```bash
-     npm install --global windows-build-tools
-     ```
-  
-  4. **Try a different Node version**: Use Node 20 LTS or 22 LTS via `nvm-windows`
-  
-  **Linux (Ubuntu/Debian):**
-  1. **Install system dependencies**:
-     ```bash
-     sudo apt-get install -y libvips-dev
-     ```
-  
-  2. **Reinstall sharp**:
-     ```bash
-     pnpm remove sharp
-     pnpm add -D sharp
-     ```
-  
-  Note: These errors don't affect production builds, only local dev with image optimization.
-
-- **Node heap out of memory during build**  
+- **Node heap out of memory during build**
   Already mitigated in scripts and CI via `NODE_OPTIONS=--max-old-space-size=4096`.
 
-- **Missing blog images**  
+- **Missing blog images**
   Provide `NUXT_PEXELS_API_KEY` (or `PEXELS_API_KEY` depending on your setup) in `.env`, or run without to use the default image.
 
-- **Content validation errors**  
+- **Content validation errors**
   Check required fields in `content.config.ts`. All YAML/Markdown is validated at build time.
 
 ## Acknowledgments

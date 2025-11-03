@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    'nuxt-og-image',
     'motion-v/nuxt',
     '@nuxthub/core'
   ],
@@ -35,6 +34,10 @@ export default defineNuxtConfig({
     }
   },
 
+  hub: {
+    database: true
+  },
+
   eslint: {
     config: {
       stylistic: {
@@ -42,23 +45,5 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  },
-
-  app: {
-    head: {
-      htmlAttrs: {
-        lang: 'en'
-      },
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
-    }
-  },
-
-  site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://www.seancramones.com',
-    name: 'Sean Erick C. Ramones',
-    description: 'Full-stack software engineer specializing in Vue.js, Nuxt, and modern web technologies.',
-    defaultLocale: 'en'
   }
 })

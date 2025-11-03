@@ -11,8 +11,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "blog:update": "node scripts/update-blog-frontmatter.mjs",
-    "blog:update-file": "node scripts/update-blog-frontmatter.mjs",
-    "og:generate": "node scripts/generate-og-image.mjs"
+    "blog:update-file": "node scripts/update-blog-frontmatter.mjs"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.68",
@@ -24,15 +23,12 @@
     "@vueuse/nuxt": "^13.9.0",
     "better-sqlite3": "^12.4.1",
     "motion-v": "^1.7.2",
-    "nuxt": "^4.1.2",
-    "nuxt-og-image": "^5.1.11"
+    "nuxt": "^4.1.2"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.9.0",
-    "@types/sharp": "^0.32.0",
     "dotenv": "^17.2.3",
     "eslint": "^9.37.0",
-    "sharp": "^0.34.4",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.1.0",
     "wrangler": "^4.43.0"
