@@ -31,7 +31,7 @@ const timelineItems = computed<TimelineItem[]>(() =>
     <template #description>
       <UTimeline
         :items="timelineItems"
-        :default-value="1"
+        :default-value="2"
         color="success"
         :ui="{
           wrapper: 'text-left',

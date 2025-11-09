@@ -1,15 +1,22 @@
-# Feature Specification: Tribute Blog Post for Colleague
+# Feature Specification: Tribute Blog Post for Asa Bain
 
 **Feature Branch**: `001-tribute-blog-post`  
 **Created**: 2025-11-07  
 **Status**: Draft  
 **Input**: User description: "I want to add a blog item that commemorates my former colleague and tech lead, who is also a dear friend to me and all my pals in Miller Development. He just resigned last October 24, and I want to dedicate a blog post of him. We are a software development company in the Philippines, but he is leaving to the Bahamas, where his hometown is. I have uploaded a short video in R2, which can be accessed via nuxthub's blob storage."
 
+## Clarifications
+
+### Session 2025-11-08
+
+- Q: Colleague's Name → A: Asa Bain
+- Q: Video Failure Handling Strategy → A: Show fallback message with download link
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - View Tribute Blog Post (Priority: P1)
 
-Website visitors can read a commemorative blog post about a departing colleague, learning about his contributions to Miller Development and watching an embedded tribute video.
+Website visitors can read a commemorative blog post about Asa Bain, learning about his contributions to Miller Development and watching an embedded tribute video.
 
 **Why this priority**: This is the core feature that delivers the primary value - sharing the tribute with readers. Without this, the feature has no purpose.
 
@@ -26,7 +33,7 @@ Website visitors can read a commemorative blog post about a departing colleague,
 
 ### User Story 2 - Share Tribute Post (Priority: P2)
 
-Readers can share the tribute post on social media or via direct link to spread the appreciation for the departing colleague.
+Readers can share the tribute post on social media or via direct link to spread the appreciation for Asa Bain.
 
 **Why this priority**: Extends the reach of the tribute beyond direct website visitors, allowing the team and others to share the appreciation, but the post must exist first (depends on P1).
 
@@ -56,25 +63,26 @@ After reading the tribute, visitors can discover other blog posts or company-rel
 
 ### Edge Cases
 
-- What happens when the video fails to load from NuxtHub blob storage?
+- What happens when the video fails to load from NuxtHub blob storage? → Display fallback message with download link to video file
 - How does the post display on mobile devices with limited bandwidth?
-- What happens if the visitor's browser doesn't support the video format?
+- What happens if the visitor's browser doesn't support the video format? → HTML5 video fallback text provides download link
 - How does the page handle if the tribute post is accessed before it's officially published?
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: System MUST display a new blog post with tribute content about the departing colleague
+- **FR-001**: System MUST display a new blog post with tribute content about Asa Bain
 - **FR-002**: Blog post MUST include a video player that loads and plays the tribute video from NuxtHub blob storage (R2)
 - **FR-003**: Blog post MUST follow the existing blog post structure with frontmatter (title, description, date, author, image, minRead)
 - **FR-004**: Blog post MUST be accessible via the blog index page at `/blog`
-- **FR-005**: Blog post MUST have a unique URL path following the existing pattern (e.g., `/blog/012-colleague-name-tribute`)
+- **FR-005**: Blog post MUST have a unique URL path following the existing pattern (e.g., `/blog/012-asa-bain-tribute`)
 - **FR-006**: Blog post MUST display metadata for social sharing (Open Graph tags) including appropriate title, description, and preview image
 - **FR-007**: Video player MUST provide standard playback controls (play, pause, volume, fullscreen)
-- **FR-008**: Blog post MUST be responsive and display correctly on mobile, tablet, and desktop devices
-- **FR-009**: Blog post date MUST reflect when the post is published (estimated November 2025)
-- **FR-010**: Blog post MUST include information about: colleague's role (Tech Lead), company (Miller Development), departure date (October 24), and destination (Bahamas)
+- **FR-008**: Video player MUST include fallback message with download link if video fails to load or browser doesn't support video format
+- **FR-009**: Blog post MUST be responsive and display correctly on mobile, tablet, and desktop devices
+- **FR-010**: Blog post date MUST reflect when the post is published (estimated November 2025)
+- **FR-011**: Blog post MUST include information about: Asa Bain's role (Tech Lead), company (Miller Development), departure date (October 24), and destination (Bahamas)
 
 ### Key Entities
 
@@ -90,7 +98,7 @@ After reading the tribute, visitors can discover other blog posts or company-rel
 - The blog post will follow the existing numbering convention (next available number: 012)
 - Reading time will be estimated based on content length (standard ~200 words per minute)
 - A featured image for the blog post preview will be selected or created
-- The colleague's name and photo will be included in the tribute content
+- Asa Bain's name and photo will be included in the tribute content
 
 ## Success Criteria *(mandatory)*
 

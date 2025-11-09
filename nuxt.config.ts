@@ -31,6 +31,9 @@ export default defineNuxtConfig({
       ],
       crawlLinks: false,
       failOnError: false
+    },
+    experimental: {
+      openAPI: true
     }
   },
 

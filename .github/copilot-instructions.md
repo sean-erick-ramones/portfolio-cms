@@ -100,3 +100,10 @@ Uses `motion-v` for animations. Common pattern:
 - Leverage Nuxt UI's variant system (`color`, `variant`, `size` props)
 - Content queries via `@nuxt/content` return fully typed objects
 - Global config accessible via `useAppConfig()` composable
+
+## Active Technologies
+- TypeScript 5.x, Vue 3 (Composition API), Nuxt 4.1 + @nuxt/content (file-based CMS), @nuxthub/core (blob storage), @nuxt/ui (components), motion-v (animations) (001-tribute-blog-post)
+- Cloudflare R2 via NuxtHub blob storage (video and images already uploaded) (001-tribute-blog-post)
+
+## Recent Changes
+- 001-tribute-blog-post: Added TypeScript 5.x, Vue 3 (Composition API), Nuxt 4.1 + @nuxt/content (file-based CMS), @nuxthub/core (blob storage), @nuxt/ui (components), motion-v (animations)
