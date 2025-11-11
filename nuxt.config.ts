@@ -27,10 +27,9 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: [
-        '/'
-      ],
-      crawlLinks: false,
+      // Pre-render the homepage
+      routes: ['/'],
+      // Then crawl all the links on the page
       failOnError: false
     },
     experimental: {
