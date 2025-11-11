@@ -72,18 +72,39 @@ Notes:
 - Nitro prerender is configured to be explicit and resilient (`crawlLinks: false`, `failOnError: false`).
 - If you encounter `GLib-GObject-CRITICAL` errors on Linux, see the Troubleshooting section below.
 
-## Deployment (Cloudflare Pages)
+## Deployment (NuxtHub → Cloudflare)
 
-This project is deployed on Cloudflare Pages.
+This project is deployed on Cloudflare Pages via **NuxtHub**, which provides a streamlined interface to Cloudflare/Wrangler with additional features like blob storage, database, and caching.
 
-Cloudflare settings:
-- Build command: `pnpm build`
-- Build output directory: `dist`
-- Framework preset: None (Nitro preset `cloudflare-pages` generates the worker and assets)
+### Why NuxtHub?
 
-Local preview and deploy with Wrangler:
+NuxtHub simplifies Cloudflare deployment by:
+- Providing a unified CLI for deployment (`npx nuxthub deploy`)
+- Managing Cloudflare resources (R2 blob storage, D1 database, KV cache)
+- Offering a web dashboard for monitoring and managing deployments
+- Handling environment variables and secrets securely
+- Automatic integration with Cloudflare Pages, Workers, and R2
+
+For more details, see the [NuxtHub Deployment Guide](https://hub.nuxt.com/docs/getting-started/deploy).
+
+### Deployment options
+
+**Option 1: Deploy via NuxtHub CLI (Recommended)**
 
 ```bash
+# Deploy to production
+npx nuxthub deploy
+
+# Deploy with custom project settings
+npx nuxthub deploy --project=your-project-name
+```
+
+**Option 2: Deploy via Wrangler (Direct Cloudflare)**
+
+```bash
+# Build the project first
+pnpm build
+
 # Preview the built site locally with Cloudflare Pages runtime
 npx wrangler pages dev dist
 
@@ -91,7 +112,39 @@ npx wrangler pages dev dist
 npx wrangler pages deploy dist
 ```
 
-Tip: Set `NUXT_PUBLIC_SITE_URL` to your production domain for correct OG image URLs.
+**Option 3: Automatic deployment via GitHub Actions**
+
+The `.github/workflows/nuxthub.yml` workflow automatically deploys to NuxtHub on pushes to `main`:
+
+```yaml
+- uses: nuxthub/deploy@latest
+  with:
+    project: your-project-name
+    token: ${{ secrets.NUXTHUB_TOKEN }}
+```
+
+### Environment variables
+
+Set these in NuxtHub dashboard or `.env`:
+
+```bash
+# Public site URL for OG images
+NUXT_PUBLIC_SITE_URL=https://www.seancramones.com
+
+# Pexels API for blog images (optional)
+NUXT_PEXELS_API_KEY=your_api_key_here
+
+# NuxtHub deployment token (for CI/CD)
+NUXTHUB_TOKEN=your_nuxthub_token
+```
+
+### NuxtHub features used
+
+- **Blob storage (R2)**: Storing tribute video and images at `static.seancramones.com`
+- **Cloudflare Pages**: Hosting the static site with SSR/SSG
+- **Custom domains**: Configured via NuxtHub dashboard
+
+Tip: Access your NuxtHub dashboard at [admin.hub.nuxt.com](https://admin.hub.nuxt.com) to manage deployments, view logs, and configure resources.
 
 ## Content authoring
 
@@ -173,10 +226,24 @@ Available package scripts:
 
 Workflows in `.github/workflows/`:
 
-- `ci.yml` — Runs on PRs and non-main pushes. Performs install, lint, typecheck, and a build (with increased Node memory) to validate changes.
-- `nuxthub.yml` — Optional: Deploy to NuxtHub on pushes to `main` if you choose to use NuxtHub.
+- **`ci.yml`** — Runs on PRs and non-main pushes. Performs install, lint, typecheck, and a build (with increased Node memory) to validate changes.
+- **`nuxthub.yml`** — Automatically deploys to NuxtHub/Cloudflare on pushes to `main`. This is the primary deployment pipeline.
 
-Primary hosting is Cloudflare Pages. Configure your Pages project to run the build and output to `dist` (as above). Nuxt/Nitro is already configured for the `cloudflare-pages` preset.
+### Deployment flow
+
+1. Push changes to `main` branch
+2. GitHub Actions triggers `nuxthub.yml` workflow
+3. NuxtHub CLI builds and deploys to Cloudflare Pages
+4. Site is live at https://www.seancramones.com
+5. NuxtHub dashboard shows deployment status and logs
+
+The project uses NuxtHub as the deployment interface, which manages:
+- Cloudflare Pages hosting (SSR/SSG)
+- R2 blob storage (images, videos, static assets)
+- Build and deployment orchestration
+- Environment variables and secrets
+
+Nuxt/Nitro is configured for the `cloudflare-pages` preset with NuxtHub features enabled in `nuxt.config.ts`.
 
 ## Troubleshooting
 
