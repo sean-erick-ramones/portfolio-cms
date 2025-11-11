@@ -6,8 +6,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
+    '@nuxthub/core',
     'motion-v/nuxt',
-    '@nuxthub/core'
+    'nuxt-studio'
   ],
 
   devtools: {
@@ -48,6 +49,20 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  studio: {
+    // Studio admin route (default: '/_studio')
+    route: '/_studio',
+
+    // GitHub repository configuration (owner and repo are required)
+    repository: {
+      provider: 'github', // only GitHub is currently supported
+      owner: 'MllrDev', // your GitHub username or organization
+      repo: 'ramones-portfolio-cms', // your repository name
+      branch: 'main', // the branch to commit to (default: main)
+      rootDir: '' // optional: if your Nuxt app is in a subdirectory (default: '')
     }
   }
 })
