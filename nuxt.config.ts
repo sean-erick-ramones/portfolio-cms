@@ -58,7 +58,7 @@ export default defineNuxtConfig({
     // GitHub repository configuration (owner and repo are required)
     repository: {
       provider: 'github', // only GitHub is currently supported
-      owner: 'MllrDev', // your GitHub username or organization
+      owner: 'sean-erick-ramones', // your GitHub username or organization
       repo: 'ramones-portfolio-cms', // your repository name
       branch: 'main', // the branch to commit to (default: main)
       rootDir: '' // optional: if your Nuxt app is in a subdirectory (default: '')
