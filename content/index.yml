@@ -87,7 +87,7 @@ faq:
 hero:
   links:
     - label: Download Resume
-      to: /documents/sean-ramones-resume.pdf
+      to: /documents/sean-ramones-resume-v2.pdf
       target: _blank
       color: neutral
       variant: outline
