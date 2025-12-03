@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content',
+    '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxthub/core',
     'motion-v/nuxt',
@@ -49,6 +50,15 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' },
+      { code: 'es', name: 'Español', language: 'es-ES', dir: 'ltr' }
+    ],
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en'
   },
 
   studio: {
