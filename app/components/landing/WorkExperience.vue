@@ -10,9 +10,8 @@ const timelineItems = computed<TimelineItem[]>(() =>
   props.page.experience.items.map(experience => ({
     icon: experience.company.logo,
     date: experience.date,
-    title: experience.position,
+    title: `${experience.position} @ ${experience.company.name}`,
     description: experience.description,
-    slot: `item-${experience.index}`,
     company: experience.company,
     index: experience.index
   })).toSorted((a, b) => a.index - b.index)
@@ -29,43 +28,23 @@ const timelineItems = computed<TimelineItem[]>(() =>
     }"
   >
     <template #description>
-      <UTimeline
-        :items="timelineItems"
-        :default-value="2"
-        color="success"
-        :ui="{
-          wrapper: 'text-left',
-          description: 'text-left',
-          title: 'text-left'
-        }"
+      <Motion
+        :initial="{ opacity: 0, transform: 'translateY(20px)' }"
+        :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
+        :transition="{ delay: 0.4, duration: 0.6 }"
+        :in-view-options="{ once: true }"
       >
-        <template
-          v-for="(item, index) in timelineItems"
-          :key="index"
-          #[item.slot]
-        >
-          <Motion
-            :initial="{ opacity: 0, transform: 'translateY(20px)' }"
-            :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-            :transition="{ delay: 0.4 + 0.2 * item.index }"
-            :in-view-options="{ once: true }"
-          >
-            <div class="space-y-1">
-              <ULink
-                :to="item.company.url"
-                target="_blank"
-                class="block font-medium hover:underline"
-                :style="{ color: item.company.color }"
-              >
-                {{ item.company.name }}
-              </ULink>
-              <p class="text-sm text-muted">
-                {{ item.description }}
-              </p>
-            </div>
-          </Motion>
-        </template>
-      </UTimeline>
+        <UTimeline
+          :items="timelineItems"
+          :default-value="2"
+          color="success"
+          :ui="{
+            wrapper: 'text-left',
+            description: 'text-left',
+            title: 'text-left'
+          }"
+        />
+      </Motion>
     </template>
   </UPageSection>
 </template>
