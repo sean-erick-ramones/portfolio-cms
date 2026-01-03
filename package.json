@@ -16,11 +16,15 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.68",
     "@iconify-json/simple-icons": "^1.2.54",
+    "@libsql/client": "^0.15.15",
     "@nuxt/content": "^3.7.1",
     "@nuxt/ui": "^4.0.1",
     "@nuxthub/core": "0.10.4",
+    "@vercel/blob": "^2.0.0",
     "@vueuse/nuxt": "^13.9.0",
     "better-sqlite3": "^12.4.1",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1",
     "motion-v": "^1.7.2",
     "nuxt": "^4.1.2",
     "nuxt-studio": "1.0.0-alpha.1"
