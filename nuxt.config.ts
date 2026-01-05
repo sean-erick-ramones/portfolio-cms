@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    '@nuxthub/core',
     'motion-v/nuxt',
     'nuxt-studio'
   ],
@@ -34,10 +33,6 @@ export default defineNuxtConfig({
     experimental: {
       openAPI: true
     }
-  },
-
-  hub: {
-    db: 'sqlite'
   },
 
   eslint: {

@@ -4,7 +4,7 @@
 
 A content-driven, type-safe portfolio and blog built with Nuxt 4, Nuxt UI, and Nuxt Content. All site content (homepage sections, projects, blog) is managed via YAML/Markdown and validated with strict Zod schemas. Includes motion animations, OG image generation, and a smooth authoring workflow powered by a helper script and the Pexels API.
 
-Live: https://www.seancramones.com (hosted on Cloudflare Pages via NuxtHub)
+Live: https://www.seancramones.com (hosted on Vercel)
 
 ## Overview
 
@@ -13,8 +13,7 @@ Live: https://www.seancramones.com (hosted on Cloudflare Pages via NuxtHub)
 - Beautiful UI with Nuxt UI (Tailwind-based) and `motion-v` animations
 - File-based CMS: YAML (pages/projects) + Markdown (blog)
 - Auto OG image generation with `nuxt-og-image`
-- Hosted on Cloudflare Pages (Nitro preset configured)
-- Optional NuxtHub deploy workflow included
+- Hosted on Vercel
 - Authoring helper script to normalize blog front matter and fetch images
 
 ## Tech stack
@@ -38,7 +37,7 @@ Key files and folders:
 - `app/pages/` — Route pages (index, about, projects, blog)
 - `content/` — Content source (index.yml, about.yml, projects.yml, blog/*.md)
 - `public/` — Static assets (images, docs, etc.)
-- `.github/workflows/` — CI (lint/typecheck/build) and NuxtHub deployment
+- `.github/workflows/` — CI (lint/typecheck/build)
 - `scripts/` — Authoring helpers (front matter updater, templates, docs)
 
 ## Getting started
@@ -72,60 +71,31 @@ Notes:
 - Nitro prerender is configured to be explicit and resilient (`crawlLinks: false`, `failOnError: false`).
 - If you encounter `GLib-GObject-CRITICAL` errors on Linux, see the Troubleshooting section below.
 
-## Deployment (NuxtHub → Cloudflare)
+## Deployment (Vercel)
 
-This project is deployed on Cloudflare Pages via **NuxtHub**, which provides a streamlined interface to Cloudflare/Wrangler with additional features like blob storage, database, and caching.
-
-### Why NuxtHub?
-
-NuxtHub simplifies Cloudflare deployment by:
-- Providing a unified CLI for deployment (`npx nuxthub deploy`)
-- Managing Cloudflare resources (R2 blob storage, D1 database, KV cache)
-- Offering a web dashboard for monitoring and managing deployments
-- Handling environment variables and secrets securely
-- Automatic integration with Cloudflare Pages, Workers, and R2
-
-For more details, see the [NuxtHub Deployment Guide](https://hub.nuxt.com/docs/getting-started/deploy).
+This project is deployed on Vercel, which provides seamless integration with Nuxt and features like edge functions, blob storage, and automatic deployments.
 
 ### Deployment options
 
-**Option 1: Deploy via NuxtHub CLI (Recommended)**
+**Option 1: Deploy via Vercel CLI**
 
 ```bash
 # Deploy to production
-npx nuxthub deploy
+vercel --prod
 
-# Deploy with custom project settings
-npx nuxthub deploy --project=your-project-name
+# Deploy to preview
+vercel
 ```
 
-**Option 2: Deploy via Wrangler (Direct Cloudflare)**
+**Option 2: Automatic deployment via GitHub integration**
 
-```bash
-# Build the project first
-pnpm build
-
-# Preview the built site locally with Cloudflare Pages runtime
-npx wrangler pages dev dist
-
-# Deploy the built site to Cloudflare Pages
-npx wrangler pages deploy dist
-```
-
-**Option 3: Automatic deployment via GitHub Actions**
-
-The `.github/workflows/nuxthub.yml` workflow automatically deploys to NuxtHub on pushes to `main`:
-
-```yaml
-- uses: nuxthub/deploy@latest
-  with:
-    project: your-project-name
-    token: ${{ secrets.NUXTHUB_TOKEN }}
-```
+Connect your GitHub repository to Vercel for automatic deployments:
+- Push to `main` → deploys to production
+- Push to other branches → creates preview deployments
 
 ### Environment variables
 
-Set these in NuxtHub dashboard or `.env`:
+Set these in Vercel dashboard or `.env.local`:
 
 ```bash
 # Public site URL for OG images
@@ -134,17 +104,9 @@ NUXT_PUBLIC_SITE_URL=https://www.seancramones.com
 # Pexels API for blog images (optional)
 NUXT_PEXELS_API_KEY=your_api_key_here
 
-# NuxtHub deployment token (for CI/CD)
-NUXTHUB_TOKEN=your_nuxthub_token
+# Vercel Blob storage (if using)
+BLOB_READ_WRITE_TOKEN=your_vercel_blob_token
 ```
-
-### NuxtHub features used
-
-- **Blob storage (R2)**: Storing tribute video and images at `static.seancramones.com`
-- **Cloudflare Pages**: Hosting the static site with SSR/SSG
-- **Custom domains**: Configured via NuxtHub dashboard
-
-Tip: Access your NuxtHub dashboard at [admin.hub.nuxt.com](https://admin.hub.nuxt.com) to manage deployments, view logs, and configure resources.
 
 ## Content authoring
 
@@ -227,23 +189,21 @@ Available package scripts:
 Workflows in `.github/workflows/`:
 
 - **`ci.yml`** — Runs on PRs and non-main pushes. Performs install, lint, typecheck, and a build (with increased Node memory) to validate changes.
-- **`nuxthub.yml`** — Automatically deploys to NuxtHub/Cloudflare on pushes to `main`. This is the primary deployment pipeline.
 
 ### Deployment flow
 
 1. Push changes to `main` branch
-2. GitHub Actions triggers `nuxthub.yml` workflow
-3. NuxtHub CLI builds and deploys to Cloudflare Pages
+2. Vercel automatically detects the push via GitHub integration
+3. Vercel builds and deploys the site
 4. Site is live at https://www.seancramones.com
-5. NuxtHub dashboard shows deployment status and logs
+5. Vercel dashboard shows deployment status and logs
 
-The project uses NuxtHub as the deployment interface, which manages:
-- Cloudflare Pages hosting (SSR/SSG)
-- R2 blob storage (images, videos, static assets)
-- Build and deployment orchestration
+The project uses Vercel's automatic deployment system, which manages:
+- Automatic builds on git push
+- Preview deployments for pull requests
+- Edge functions and serverless routes
+- Blob storage via `@vercel/blob`
 - Environment variables and secrets
-
-Nuxt/Nitro is configured for the `cloudflare-pages` preset with NuxtHub features enabled in `nuxt.config.ts`.
 
 ## Troubleshooting
 
