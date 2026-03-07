@@ -37,7 +37,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/blog/**': { isr: true }  // or { ssr: true }
-  }
+  },
 
   eslint: {
     config: {
