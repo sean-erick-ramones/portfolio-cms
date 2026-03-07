@@ -40,7 +40,12 @@ useHead({
   ]
 })
 
-const articleLink = computed(() => `${window?.location}`)
+const articleLink = computed(() => {
+  if (import.meta.client) {
+    return `${window.location}`
+  }
+  return ''
+})
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
