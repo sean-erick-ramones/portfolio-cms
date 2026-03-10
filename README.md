@@ -95,7 +95,7 @@ Connect your GitHub repository to Vercel for automatic deployments:
 
 ### Environment variables
 
-Set these in Vercel dashboard or `.env.local`:
+Set these in Vercel dashboard. For local development, either keep them in a root `.env.local` or run `vercel pull` and let the app read the generated files from `.vercel/` automatically:
 
 ```bash
 # Public site URL for OG images
@@ -107,6 +107,24 @@ NUXT_PEXELS_API_KEY=your_api_key_here
 # Vercel Blob storage (if using)
 BLOB_READ_WRITE_TOKEN=your_vercel_blob_token
 ```
+
+Local workflow:
+
+```bash
+vercel pull --yes
+pnpm dev
+```
+
+The repo checks these files automatically before startup:
+
+```bash
+.env.local
+.env
+.vercel/.env.development.local
+.vercel/.env.local
+```
+
+That makes a root `.env` optional after cloning. A root `.env.local` still works if you want machine-specific overrides.
 
 ## Content authoring
 
@@ -161,7 +179,7 @@ Environment variable:
 PEXELS_API_KEY=your_api_key_here
 ```
 
-You can place it in a project `.env` file or export it in your shell. Example `.env` keys used in this repo:
+You can place it in a root `.env.local`, rely on `vercel pull`, or export it in your shell. Example keys used in this repo:
 
 ```
 # Public URL, used for OG Image when running nuxt generate
@@ -169,7 +187,7 @@ NUXT_PUBLIC_SITE_URL=https://www.seancramones.com
 NUXT_PEXELS_API_KEY=your_api_key_here
 ```
 
-Note: The script reads `.env` manually when run standalone, so it will work outside of Nuxt runtime.
+Note: The blog script reads the same fallback chain as Nuxt, so it also works with `.vercel/.env.development.local`.
 
 ## Scripts
 

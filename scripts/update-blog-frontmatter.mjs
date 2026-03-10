@@ -15,9 +15,33 @@ import dotenv from 'dotenv'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+const rootDir = path.join(__dirname, '..')
+const localEnvTarget = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
-// Load environment variables from .env file
-dotenv.config({ path: path.join(__dirname, '../.env') })
+function loadLocalEnvFallback() {
+  const candidates = [
+    path.join(rootDir, '.env.local'),
+    path.join(rootDir, '.env'),
+    path.join(rootDir, '.vercel', `.env.${localEnvTarget}.local`),
+    path.join(rootDir, '.vercel', '.env.local')
+  ]
+
+  for (const envPath of candidates) {
+    if (!fs.existsSync(envPath)) {
+      continue
+    }
+
+    const parsed = dotenv.parse(fs.readFileSync(envPath))
+
+    for (const [key, value] of Object.entries(parsed)) {
+      if (process.env[key] === undefined) {
+        process.env[key] = value
+      }
+    }
+  }
+}
+
+loadLocalEnvFallback()
 
 // Configuration
 const BLOG_DIR = path.join(__dirname, '../content/blog')
