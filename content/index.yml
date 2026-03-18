@@ -1,84 +1,13 @@
-seo:
-  title: Sean Erick C. Ramones | Full-stack Software Engineer
-  description: Welcome to my portfolio! I'm Sean Erick Ramones, and I build digital solutions that are both beautiful and functional.
-
-profileImage:
-  src: /avatars/profile-image-1.png
-  alt: Profile image of Sean Erick Ramones
-
 title: Hi! I'm Sean Erick Ramones, a Software Engineer
-
-description: I create intuitive, scalable applications where design meets functionality, turning complex ideas into seamless user experiences.
-
-snsLinks:
-  - icon: i-simple-icons-linkedin
-    to: https://www.linkedin.com/in/sean-erick-ramones-102a64192
-    target: _blank
-    aria-label: Sean Erick Ramones on Linkedin
-  - icon: i-simple-icons-github
-    to: https://github.com/sean-erick-ramones
-    target: _blank
-    aria-label: Sean Erick Ramones on GitHub
-  - icon: i-simple-icons-x
-    to: https://x.com/ramones_sean
-    target: _blank
-    aria-label: Nuxt on X
-  - icon: i-simple-icons-instagram
-    to: https://www.instagram.com/sean.e.ramz
-    target: _blank
-    aria-label: Sean Erick Ramones on Instagram
-
-hero:
-  links:
-    - label: Download Resume
-      to: /documents/sean-ramones-resume.pdf
-      target: _blank
-      color: neutral
-      variant: outline
-      icon: i-lucide-download
-      download: "Resume - Sean Erick Ramones"
-  images:
-    - src: /hero/nodejs.png
-      alt: Node.js logo
-    - src: /hero/vue.png
-      alt: Vue.js logo
-    - src: /hero/nuxt.png
-      alt: Nuxt logo
-    - src: /hero/react.png
-      alt: React logo
-    - src: /hero/postgres.png
-      alt: PostgreSQL logo
-    - src: /hero/supabase.png
-      alt: Supabase logo
-    - src: /hero/vite.png
-      alt: Vite logo
-    - src: /hero/github.png
-      alt: GitHub logo
-    - src: /hero/vercel.png
-      alt: Vercel logo
-    - src: /hero/cloudflare.png
-      alt: Cloudflare logo
-    - src: /hero/git.png
-      alt: Git logo
-    - src: /hero/jira.png
-      alt: Jira logo
-    - src: /hero/github-copilot.png
-      alt: GitHub Copilot logo
-
-now:
-  openTo:
-    - Full-time
-    - Contract
-    - Remote (UTC+8 overlap)
-  available: true
-  meetingLink: https://calendly.com/seancramones/15-min-quick-chat
-
 about:
   title: About Me
   description: |
     As a full-stack software engineer with over 7 years of experience, I specialize in building modern, performant web applications with a strong focus on usability and design consistency.
     My approach blends technical depth with user-centered thinking—translating complex ideas into scalable, accessible digital products that balance functionality, performance, and great user experience.
-
+blog:
+  title: Latest Articles
+  description: Some of my recent thoughts
+description: I create intuitive, scalable applications where design meets functionality, turning complex ideas into seamless user experiences.
 experience:
   title: Work Experience
   items:
@@ -106,40 +35,6 @@ experience:
         url: https://www.bettertradeoff.com
       description: Spearheaded AngularJS to Angular v12+ migration strategy by introducing reusable Web Components and modernizing onboarding portals, login systems, and admin dashboards to reduce technical debt.
       index: 3
-
-blog:
-  title: Latest Articles
-  description: Some of my recent thoughts
-
-testimonials:
-  title: Testimonials
-  description: Feedback from colleagues and clients.
-  items:
-    - quote: |
-        I’ve had the pleasure of working with Sean for four years. During that time, he’s been my go-to person whenever I have questions about frontend development. While I’ve been more focused on backend work, I’ve always admired how proficient Sean is with frontend technologies and how he consistently stays up to date with the latest tools and best practices.
-
-        Sean is easy to work with, approachable, and always willing to help. He explains things clearly and patiently, making collaboration smooth and productive. He brings both technical skill and a great attitude to the team, which makes him a valuable teammate and a great person to work with.
-
-        I highly recommend Sean to any team looking for a skilled frontend developer who’s not only technically strong but also genuinely collaborative and supportive.
-      author:
-        name: Andrew Vincoy
-        description: Tech Lead | Software Engineer @ Miller Development
-        to: https://www.linkedin.com/in/andrew-vincoy-226014169/
-        avatar:
-          src: /avatars/testimonials/andrew-vincoy-profile-image.jpeg
-    - quote: |
-        I had the privilege of working with Sean Ramones on multiple projects at Miller Development, where he consistently stood out as a dependable and capable Full Stack Developer.
-
-        Sean combines strong technical skills with an impressive ability to adapt, collaborate, and deliver high-quality results. He approaches every task with ownership and attention to detail, ensuring that his work not only meets requirements but also contributes to the overall stability and performance of the product.
-
-        I strongly recommend Sean for any software development role. He is the kind of developer who not only delivers excellent work but also inspires collaboration and continuous improvement in those around him.
-      author:
-        name: Asa Bain
-        description: Tech Lead | Senior Software Engineer @ Miller Development
-        to: https://www.linkedin.com/in/asa-bain-6bb980119/
-        avatar:
-          src: /avatars/testimonials/asa-bain-profile-image.jpeg
-
 faq:
   title: Frequently Asked Questions
   description: Answers to common questions about how I work, collaborate, and what I’m looking for next.
@@ -182,10 +77,104 @@ faq:
             - Reading Japanese manga/light novels
             - Playing MOBA games (Dota 2) and relaxing games (Stardew Valley)
             - Driving and exploring new places
-            - Coffee! Whether it's brewing pour-over or using the espresso machine and creating (terrible) latter art.
+            - Coffee! Whether it's brewing pour-over or using the espresso machine and creating (terrible) latte art.
         - label: What motivates your work as an engineer?
           content: |
             Turning complex ideas into scalable, well‑designed products that feel effortless to use. I love shaping systems where design consistency, performance, and developer experience work together.
         - label: What tech do you prefer working with?
           content: |
             Vue 3, Nuxt, Node.js, FastAPI, PostgreSQL/Supabase, and modern tooling (Vite, GitHub, CI/CD). I’m pragmatic and will choose the right tool for the job.
+hero:
+  links:
+    - label: Download Resume
+      to: /documents/sean-ramones-resume-v2.pdf
+      target: _blank
+      color: neutral
+      variant: outline
+      icon: i-lucide-download
+      download: Resume - Sean Erick Ramones
+  images:
+    - src: /hero/nodejs.png
+      alt: Node.js logo
+    - src: /hero/vue.png
+      alt: Vue.js logo
+    - src: /hero/nuxt.png
+      alt: Nuxt logo
+    - src: /hero/react.png
+      alt: React logo
+    - src: /hero/postgres.png
+      alt: PostgreSQL logo
+    - src: /hero/supabase.png
+      alt: Supabase logo
+    - src: /hero/vite.png
+      alt: Vite logo
+    - src: /hero/github.png
+      alt: GitHub logo
+    - src: /hero/vercel.png
+      alt: Vercel logo
+    - src: /hero/cloudflare.png
+      alt: Cloudflare logo
+    - src: /hero/git.png
+      alt: Git logo
+    - src: /hero/jira.png
+      alt: Jira logo
+    - src: /hero/github-copilot.png
+      alt: GitHub Copilot logo
+now:
+  openTo:
+    - Full-time
+    - Contract
+    - Remote (UTC+8 overlap)
+  available: true
+  meetingLink: https://cal.com/sean-erick-ramones-r5um2y/30min
+profileImage:
+  src: /avatars/profile-image-1.png
+  alt: Profile image of Sean Erick Ramones
+seo:
+  title: Sean Erick C. Ramones | Full-stack Software Engineer
+  description: Welcome to my portfolio! I'm Sean Erick Ramones, and I build digital solutions that are both beautiful and functional.
+snsLinks:
+  - icon: i-simple-icons-linkedin
+    to: https://www.linkedin.com/in/sean-erick-ramones-102a64192
+    target: _blank
+    aria-label: Sean Erick Ramones on Linkedin
+  - icon: i-simple-icons-github
+    to: https://github.com/sean-erick-ramones
+    target: _blank
+    aria-label: Sean Erick Ramones on GitHub
+  - icon: i-simple-icons-x
+    to: https://x.com/ramones_sean
+    target: _blank
+    aria-label: Nuxt on X
+  - icon: i-simple-icons-instagram
+    to: https://www.instagram.com/sean.e.ramz
+    target: _blank
+    aria-label: Sean Erick Ramones on Instagram
+testimonials:
+  title: Testimonials
+  description: Feedback from colleagues and clients.
+  items:
+    - quote: |
+        I’ve had the pleasure of working with Sean for four years. During that time, he’s been my go-to person whenever I have questions about frontend development. While I’ve been more focused on backend work, I’ve always admired how proficient Sean is with frontend technologies and how he consistently stays up to date with the latest tools and best practices.
+
+        Sean is easy to work with, approachable, and always willing to help. He explains things clearly and patiently, making collaboration smooth and productive. He brings both technical skill and a great attitude to the team, which makes him a valuable teammate and a great person to work with.
+
+        I highly recommend Sean to any team looking for a skilled frontend developer who’s not only technically strong but also genuinely collaborative and supportive.
+      author:
+        name: Andrew Vincoy
+        description: Tech Lead | Software Engineer @ Miller Development
+        to: https://www.linkedin.com/in/andrew-vincoy-226014169/
+        avatar:
+          src: /avatars/testimonials/andrew-vincoy-profile-image.jpeg
+    - quote: |
+        I had the privilege of working with Sean Ramones on multiple projects at Miller Development, where he consistently stood out as a dependable and capable Full Stack Developer.
+
+        Sean combines strong technical skills with an impressive ability to adapt, collaborate, and deliver high-quality results. He approaches every task with ownership and attention to detail, ensuring that his work not only meets requirements but also contributes to the overall stability and performance of the product.
+
+        I strongly recommend Sean for any software development role. He is the kind of developer who not only delivers excellent work but also inspires collaboration and continuous improvement in those around him.
+      author:
+        name: Asa Bain
+        description: Tech Lead | Senior Software Engineer @ Miller Development
+        to: https://www.linkedin.com/in/asa-bain-6bb980119/
+        avatar:
+          src: /avatars/testimonials/asa-bain-profile-image.jpeg

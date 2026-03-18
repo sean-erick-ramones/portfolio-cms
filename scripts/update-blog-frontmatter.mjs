@@ -15,16 +15,40 @@ import dotenv from 'dotenv'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+const rootDir = path.join(__dirname, '..')
+const localEnvTarget = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
-// Load environment variables from .env file
-dotenv.config({ path: path.join(__dirname, '../.env') })
+function loadLocalEnvFallback() {
+  const candidates = [
+    path.join(rootDir, '.env.local'),
+    path.join(rootDir, '.env'),
+    path.join(rootDir, '.vercel', `.env.${localEnvTarget}.local`),
+    path.join(rootDir, '.vercel', '.env.local')
+  ]
+
+  for (const envPath of candidates) {
+    if (!fs.existsSync(envPath)) {
+      continue
+    }
+
+    const parsed = dotenv.parse(fs.readFileSync(envPath))
+
+    for (const [key, value] of Object.entries(parsed)) {
+      if (process.env[key] === undefined) {
+        process.env[key] = value
+      }
+    }
+  }
+}
+
+loadLocalEnvFallback()
 
 // Configuration
 const BLOG_DIR = path.join(__dirname, '../content/blog')
 const AUTHOR = {
   name: 'Sean Erick C. Ramones',
   avatar: {
-    src: 'avatars/profile-image-1.png',
+    src: '/avatars/profile-image-1.png',
     alt: 'Sean Erick C. Ramones'
   }
 }
@@ -32,6 +56,50 @@ const AUTHOR = {
 const DEFAULT_IMAGE = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 
 // (Reserved for future: keyword-based image refinement)
+
+/**
+ * Convert a title string into a URL-friendly slug
+ */
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+/**
+ * Rename a blog file based on its title slug, preserving the numeric prefix.
+ * Returns the new file path (or the original if no rename was needed).
+ */
+function renameFileToSlug(filePath, title) {
+  const dir = path.dirname(filePath)
+  const basename = path.basename(filePath, '.md')
+
+  // Extract numeric prefix (e.g. "015" from "015.md" or "015.some-slug")
+  const prefixMatch = basename.match(/^(\d+)/)
+  const prefix = prefixMatch ? prefixMatch[1] : null
+
+  const slug = slugify(title)
+  if (!slug) return filePath
+
+  const newName = prefix ? `${prefix}.${slug}.md` : `${slug}.md`
+  const newPath = path.join(dir, newName)
+
+  // Skip if already named correctly
+  if (newPath === filePath) return filePath
+
+  // Avoid overwriting an existing file
+  if (fs.existsSync(newPath)) {
+    console.log(`   ⚠️  Cannot rename: ${path.basename(newPath)} already exists`)
+    return filePath
+  }
+
+  fs.renameSync(filePath, newPath)
+  console.log(`   📁 Renamed: ${path.basename(filePath)} → ${path.basename(newPath)}`)
+  return newPath
+}
 
 /**
  * Get a random tech-related image from Pexels
@@ -101,7 +169,12 @@ async function getRandomTechImage(title = '') {
 function extractTitle(content) {
   // Look for first heading
   const h1Match = content.match(/^#\s+(.+)$/m)
-  if (h1Match) return h1Match[1].replace(/\[.*?\]/g, '').trim()
+  if (h1Match) {
+    return h1Match[1]
+      .replace(/\[.*?\]/g, '') // Remove bracketed tags like [Vue][August 2025]
+      .replace(/^[\s\-–—]+/, '') // Remove leading dashes/whitespace
+      .trim()
+  }
 
   // Fallback to filename
   return null
@@ -236,10 +309,15 @@ async function processBlogFile(filePath, refreshImages = false) {
   // Write back
   fs.writeFileSync(filePath, newContent, 'utf-8')
 
+  // Rename file to match title slug
+  const newPath = renameFileToSlug(filePath, title)
+
   console.log(`✅ Updated:`)
   console.log(`   Title: ${title}`)
   console.log(`   Date: ${date}`)
   console.log(`   Read time: ${minRead} min`)
+
+  return newPath
 }
 
 /**

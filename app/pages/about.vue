@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('about', () => {
+const { data: page } = await useAsyncData(`about-page`, () => {
   return queryCollection('about').first()
 })
+
 if (!page.value) {
   throw createError({
     statusCode: 404,
@@ -53,13 +54,13 @@ useHead({
         links: 'justify-start'
       }"
     >
-      <NuxtImg
-        class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
+      <img
+        class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-bg"
         :src="page.profileImage.src"
         :alt="page.profileImage.alt"
         width="144"
         height="144"
-      />
+      >
     </UPageHero>
     <UPageSection
       :ui="{
@@ -107,7 +108,7 @@ useHead({
       </UCarousel>
 
       <!-- Desktop: Overlapping polaroid layout (md and above) -->
-      <div class="hidden md:flex flex-row justify-center items-center py-10 space-x-[-2rem]">
+      <div class="hidden md:flex flex-row justify-center items-center py-10 -space-x-8">
         <PolaroidItem
           v-for="(image, index) in page.images"
           :key="index"

@@ -1,13 +1,45 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+import dotenv from 'dotenv'
+
+const rootDir = fileURLToPath(new URL('.', import.meta.url))
+const localEnvTarget = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+
+function loadLocalEnvFallback() {
+  const candidates = [
+    path.join(rootDir, '.env.local'),
+    path.join(rootDir, '.env'),
+    path.join(rootDir, '.vercel', `.env.${localEnvTarget}.local`),
+    path.join(rootDir, '.vercel', '.env.local')
+  ]
+
+  for (const envPath of candidates) {
+    if (!fs.existsSync(envPath)) {
+      continue
+    }
+
+    const parsed = dotenv.parse(fs.readFileSync(envPath))
+
+    for (const [key, value] of Object.entries(parsed)) {
+      if (process.env[key] === undefined) {
+        process.env[key] = value
+      }
+    }
+  }
+}
+
+loadLocalEnvFallback()
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
-    '@nuxthub/core',
     'motion-v/nuxt',
     'nuxt-studio'
   ],
@@ -28,19 +60,13 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      // Pre-render the homepage
-      routes: ['/'],
-      // Then crawl all the links on the page
+      routes: ['/', '/blog', '/about', '/projects'],
+      crawlLinks: true,
       failOnError: false
     },
     experimental: {
       openAPI: true
     }
-  },
-
-  hub: {
-    database: true,
-    blob: true
   },
 
   eslint: {

@@ -4,6 +4,7 @@ const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('blog').path(route.path).first()
 )
+
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   queryCollectionItemSurroundings('blog', route.path, {
@@ -40,7 +41,12 @@ useHead({
   ]
 })
 
-const articleLink = computed(() => `${window?.location}`)
+const articleLink = computed(() => {
+  if (import.meta.client) {
+    return `${window.location}`
+  }
+  return ''
+})
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
@@ -74,11 +80,11 @@ const formatDate = (dateString: string) => {
               {{ page.minRead }} MIN READ
             </span>
           </div>
-          <NuxtImg
+          <img
             :src="page.image"
             :alt="page.title"
             class="rounded-lg w-full h-[300px] object-cover object-center"
-          />
+          >
           <h1 class="text-4xl text-center font-medium max-w-3xl mx-auto mt-4">
             {{ page.title }}
           </h1>

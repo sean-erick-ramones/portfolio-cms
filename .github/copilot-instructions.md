@@ -102,8 +102,10 @@ Uses `motion-v` for animations. Common pattern:
 - Global config accessible via `useAppConfig()` composable
 
 ## Active Technologies
-- TypeScript 5.x, Vue 3 (Composition API), Nuxt 4.1 + @nuxt/content (file-based CMS), @nuxthub/core (blob storage), @nuxt/ui (components), motion-v (animations) (001-tribute-blog-post)
-- Cloudflare R2 via NuxtHub blob storage (video and images already uploaded) (001-tribute-blog-post)
+- TypeScript 5.x, Vue 3 (Composition API), Nuxt 4.1 + @nuxt/content (file-based CMS), @vercel/blob (blob storage), @nuxt/ui (components), motion-v (animations)
+- Vercel Blob storage for static assets (videos and images)
 
 ## Recent Changes
-- 001-tribute-blog-post: Added TypeScript 5.x, Vue 3 (Composition API), Nuxt 4.1 + @nuxt/content (file-based CMS), @nuxthub/core (blob storage), @nuxt/ui (components), motion-v (animations)
+- Migrated from NuxtHub/Cloudflare to Vercel deployment
+- Replaced @nuxthub/core with @vercel/blob for blob storage
+- Removed database-related dependencies (drizzle-orm, better-sqlite3, @libsql/client)

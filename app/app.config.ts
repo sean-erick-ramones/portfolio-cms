@@ -1,6 +1,6 @@
 export default defineAppConfig({
   global: {
-    meetingLink: 'https://calendly.com/seancramones/15-min-quick-chat',
+    meetingLink: 'https://cal.com/sean-erick-ramones-r5um2y/30min',
     email: 'seancramones@gmail.com',
     available: true
   },
