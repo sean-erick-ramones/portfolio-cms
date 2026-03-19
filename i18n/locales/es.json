@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "blog": "Blog",
+    "about": "Acerca de"
+  },
+  "blog": {
+    "readArticle": "Leer Artículo",
+    "minRead": "MIN LECTURA",
+    "copyLink": "Copiar enlace",
+    "linkCopied": "Enlace del artículo copiado al portapapeles",
+    "backToBlog": "Blog"
+  },
+  "hero": {
+    "available": "Disponible para nuevos proyectos",
+    "unavailable": "No disponible en este momento"
+  },
+  "error": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, pero esta página no pudo ser encontrada."
+  },
+  "colorMode": {
+    "switchTo": "Cambiar a modo {mode}"
+  },
+  "about": {
+    "nowOpenTo": "Ahora / Abierto a"
+  }
+}

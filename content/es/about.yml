@@ -1,0 +1,55 @@
+title: Sobre Mí
+description: Un poco más sobre mi trayectoria como ingeniero full-stack y cómo construyo productos escalables y centrados en el usuario.
+profileImage:
+  src: /avatars/profile-image-2.png
+  alt: Sean Erick C. Ramones
+content: |
+  Hola, soy **Sean Erick Ramones**, un ingeniero de software full-stack con más de 7 años de experiencia construyendo aplicaciones web modernas y de alto rendimiento.
+
+  Me enfoco en convertir ideas complejas en productos elegantes y escalables donde la consistencia de diseño, el rendimiento y la experiencia del desarrollador funcionan juntos. En el frontend prefiero **Vue 3** y **Nuxt**; en el backend **Node.js** y **FastAPI**; para datos, **PostgreSQL/Supabase**; y despliego en plataformas modernas serverless/cloud como **Vercel** y **Cloudflare**.
+
+  ### Lo que me importa
+
+  - Código type-safe y arquitectura limpia
+  - Componentes reutilizables y sistemas de diseño
+  - Rendimiento, accesibilidad y DX
+  - Cultura de CI/CD y revisión de código que escala
+
+  ### Experiencia seleccionada
+
+  - Miller Development AB — Ingeniero de Software Full-stack (Híbrido, 2019–Presente)
+  - Better Trade Off Ltd. — Desarrollador de Software (Contrato, 2023–2024)
+  - SCI Global Services — Desarrollador de Software Full-stack (Presencial, 2018–2019)
+
+  ### Más allá del código
+
+  - Correr y entrenamiento de cross-fit
+  - Ver anime; leer manga/novelas ligeras japonesas
+  - Jugar juegos MOBA (**Dota 2**) y juegos relajantes (**Stardew Valley**)
+  - Conducir y explorar nuevos lugares
+  - Hacer café espresso y mostrar mi (terrible) arte latte a amigos/colegas.
+
+  Si te gustaría colaborar, contáctame en **seancramones@gmail.com** o conéctate en [LinkedIn](https://www.linkedin.com/in/sean-erick-ramones-102a64192).
+images:
+  - src: /about/awareness-run-2024-dumagete.jpg
+    alt: Carrera de concientización 2024 en Dumaguete
+  - src: /about/job-agent-team-reunion-the-pub-dumaguete.jpg
+    alt: Reunión del equipo en The Pub en Dumaguete
+  - src: /about/pad-thai-from-wok-bae-dumaguete.jpg
+    alt: Pad Thai en Wok Bae en Dumaguete
+  - src: /about/sipalay-beach-negros-occidental.jpg
+    alt: Playa de Sipalay en Negros Occidental
+  - src: /about/casaroro-falls-valencia-negros-oriental.jpg
+    alt: Cascadas de Casaroro en Negros Oriental
+  - src: /about/sipalay-coast-negros-occidental.jpg
+    alt: Costa de Sipalay en Negros Occidental
+
+now:
+  openTo:
+    - Tiempo completo
+    - Contrato
+    - Remoto (superposición UTC+8)
+  currently:
+    - Construyendo dashboards ricos en datos con Nuxt
+    - Aprendiendo patrones serverless avanzados
+  availability: Aceptando nuevos proyectos ahora

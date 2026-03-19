@@ -79,12 +79,12 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    defaultLocale: 'en',
     locales: [
-      { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' },
-      { code: 'es', name: 'Español', language: 'es-ES', dir: 'ltr' }
+      { code: 'en', name: 'English', file: 'en.json', language: 'en-US', dir: 'ltr' },
+      { code: 'es', name: 'Español', file: 'es.json', language: 'es-ES', dir: 'ltr' }
     ],
-    strategy: 'prefix_except_default',
-    defaultLocale: 'en'
+    strategy: 'prefix_except_default'
   },
 
   studio: {

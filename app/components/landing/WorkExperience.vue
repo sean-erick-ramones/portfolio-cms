@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { IndexEnCollectionItem } from '@nuxt/content'
 import type { TimelineItem } from '@nuxt/ui'
 
 const props = defineProps<{
-  page: IndexCollectionItem
+  page: IndexEnCollectionItem
 }>()
 
 const timelineItems = computed<TimelineItem[]>(() =>

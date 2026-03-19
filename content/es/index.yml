@@ -1,0 +1,179 @@
+title: "¡Hola! Soy Sean Erick Ramones, Ingeniero de Software"
+about:
+  title: Sobre Mí
+  description: |
+    Como ingeniero de software full-stack con más de 7 años de experiencia, me especializo en construir aplicaciones web modernas y de alto rendimiento con un fuerte enfoque en usabilidad y consistencia de diseño.
+blog:
+  title: Últimos Artículos
+  description: Algunos de mis pensamientos recientes
+description: Creo aplicaciones intuitivas y escalables donde el diseño se encuentra con la funcionalidad, convirtiendo ideas complejas en experiencias de usuario fluidas.
+experience:
+  title: Experiencia Laboral
+  items:
+    - position: Ingeniero de Software Full-stack
+      date: May 2019 - Presente
+      company:
+        name: Miller Development AB
+        logo: i-lucide-code-xml
+        url: https://millerdevelopment.se
+      description: Lideré el desarrollo full-stack para clientes internacionales, progresando de nivel medio a SME de Vue mientras construía dashboards escalables, productos SaaS de RRHH y plataformas integradas con ML.
+      index: 2
+    - position: Desarrollador de Software Full-stack
+      date: Jun 2018 - Abr 2019
+      company:
+        name: SCI Global Services Inc.
+        logo: i-lucide-flask-conical
+        url: http://sciglobalservices.com/
+      description: Desarrollé sitios web B2B y soluciones de marketing digital para mercados de laboratorio y médicos.
+      index: 1
+    - position: Desarrollador de Software (Contractual)
+      date: May 2023 - Ene 2024
+      company:
+        name: Better Trade Off Ltd.
+        logo: i-simple-icons-angular
+        url: https://www.bettertradeoff.com
+      description: Lideré la estrategia de migración de AngularJS a Angular v12+ introduciendo Web Components reutilizables y modernizando portales.
+      index: 3
+faq:
+  title: Preguntas Frecuentes
+  description: Respuestas a preguntas comunes sobre cómo trabajo, colaboro y qué busco a continuación.
+  categories:
+    - title: Trabajo y Colaboración
+      questions:
+        - label: "¿En qué tipo de proyectos te enfocas?"
+          content: |
+            Construyo aplicaciones web full-stack, dashboards y plataformas SaaS con interfaces ricas en datos y fáciles de usar. En el frontend uso principalmente Vue/Nuxt (y React cuando es necesario). En el backend trabajo con Node.js y FastAPI, con PostgreSQL/Supabase para datos.
+        - label: "¿Cómo aseguras la escalabilidad y calidad del código?"
+          content: |
+            Favorezco código type-safe (TypeScript), arquitectura clara y componentes modulares, pruebas automatizadas donde importa, y perfilado de rendimiento.
+        - label: "¿Trabajas en proyectos nuevos o bases de código existentes?"
+          content: |
+            Ambos. Disfruto construcciones desde cero y tengo experiencia en migraciones y modernización.
+    - title: Compensación y Disponibilidad
+      questions:
+        - label: "¿Cómo abordas las discusiones de compensación?"
+          content: |
+            La compensación depende del alcance del rol, responsabilidades y paquete general. Prefiero alinear expectativas e impacto primero.
+        - label: "¿Estás abierto a trabajo por contrato o freelance?"
+          content: |
+            Sí, estoy abierto a roles de tiempo completo así como a contratos. Para contratos, prefiero alcances, entregables y plazos claramente definidos.
+        - label: "¿Cuál es tu disponibilidad y compatibilidad de zona horaria?"
+          content: |
+            Trabajo principalmente en UTC+8 y puedo alinearme a horas de superposición para equipos en otras zonas horarias.
+        - label: "¿Qué roles estás buscando?"
+          content: |
+            Principalmente roles de **Ingeniero de Software Full-stack** o **Ingeniero Frontend (Vue/Nuxt)**.
+        - label: "¿Cuál es tu período de preaviso?"
+          content: |
+            Típicamente **1–3 semanas**, dependiendo de la carga de trabajo activa y los requisitos de transición.
+    - title: Sobre Mí
+      questions:
+        - label: "¿Qué disfrutas fuera del trabajo?"
+          content: |
+            - Correr
+            - Entrenamiento de cross-fit
+            - Ver anime
+            - Leer manga/novelas ligeras japonesas
+            - Jugar juegos MOBA (Dota 2) y juegos relajantes (Stardew Valley)
+            - Conducir y explorar nuevos lugares
+            - ¡Café! Ya sea preparando pour-over o usando la máquina de espresso.
+        - label: "¿Qué te motiva en tu trabajo como ingeniero?"
+          content: |
+            Convertir ideas complejas en productos escalables y bien diseñados que se sienten fáciles de usar.
+        - label: "¿Con qué tecnología prefieres trabajar?"
+          content: |
+            Vue 3, Nuxt, Node.js, FastAPI, PostgreSQL/Supabase y herramientas modernas (Vite, GitHub, CI/CD).
+hero:
+  links:
+    - label: Descargar CV
+      to: /documents/sean-ramones-resume-v2.pdf
+      target: _blank
+      color: neutral
+      variant: outline
+      icon: i-lucide-download
+      download: CV - Sean Erick Ramones
+  images:
+    - src: /hero/nodejs.png
+      alt: Logo de Node.js
+    - src: /hero/vue.png
+      alt: Logo de Vue.js
+    - src: /hero/nuxt.png
+      alt: Logo de Nuxt
+    - src: /hero/react.png
+      alt: Logo de React
+    - src: /hero/postgres.png
+      alt: Logo de PostgreSQL
+    - src: /hero/supabase.png
+      alt: Logo de Supabase
+    - src: /hero/vite.png
+      alt: Logo de Vite
+    - src: /hero/github.png
+      alt: Logo de GitHub
+    - src: /hero/vercel.png
+      alt: Logo de Vercel
+    - src: /hero/cloudflare.png
+      alt: Logo de Cloudflare
+    - src: /hero/git.png
+      alt: Logo de Git
+    - src: /hero/jira.png
+      alt: Logo de Jira
+    - src: /hero/github-copilot.png
+      alt: Logo de GitHub Copilot
+now:
+  openTo:
+    - Tiempo completo
+    - Contrato
+    - Remoto (superposición UTC+8)
+  available: true
+  meetingLink: https://cal.com/sean-erick-ramones-r5um2y/30min
+profileImage:
+  src: /avatars/profile-image-1.png
+  alt: Imagen de perfil de Sean Erick Ramones
+seo:
+  title: Sean Erick C. Ramones | Ingeniero de Software Full-stack
+  description: "¡Bienvenido a mi portafolio! Soy Sean Erick Ramones, y construyo soluciones digitales que son tanto hermosas como funcionales."
+snsLinks:
+  - icon: i-simple-icons-linkedin
+    to: https://www.linkedin.com/in/sean-erick-ramones-102a64192
+    target: _blank
+    aria-label: Sean Erick Ramones en LinkedIn
+  - icon: i-simple-icons-github
+    to: https://github.com/sean-erick-ramones
+    target: _blank
+    aria-label: Sean Erick Ramones en GitHub
+  - icon: i-simple-icons-x
+    to: https://x.com/ramones_sean
+    target: _blank
+    aria-label: Sean Erick Ramones en X
+  - icon: i-simple-icons-instagram
+    to: https://www.instagram.com/sean.e.ramz
+    target: _blank
+    aria-label: Sean Erick Ramones en Instagram
+testimonials:
+  title: Testimonios
+  description: Comentarios de colegas y clientes.
+  items:
+    - quote: |
+        He tenido el placer de trabajar con Sean durante cuatro años. Durante ese tiempo, ha sido mi persona de referencia cada vez que tengo preguntas sobre desarrollo frontend. Si bien me he enfocado más en el trabajo de backend, siempre he admirado lo competente que es Sean con las tecnologías frontend y cómo se mantiene constantemente actualizado con las últimas herramientas y mejores prácticas.
+
+        Sean es fácil de trabajar, accesible y siempre dispuesto a ayudar. Explica las cosas de manera clara y paciente, haciendo que la colaboración sea fluida y productiva.
+
+        Recomiendo ampliamente a Sean a cualquier equipo que busque un desarrollador frontend hábil que no solo sea técnicamente fuerte sino también genuinamente colaborativo y solidario.
+      author:
+        name: Andrew Vincoy
+        description: Tech Lead | Ingeniero de Software @ Miller Development
+        to: https://www.linkedin.com/in/andrew-vincoy-226014169/
+        avatar:
+          src: /avatars/testimonials/andrew-vincoy-profile-image.jpeg
+    - quote: |
+        Tuve el privilegio de trabajar con Sean Ramones en múltiples proyectos en Miller Development, donde consistentemente se destacó como un Desarrollador Full Stack confiable y capaz.
+
+        Sean combina fuertes habilidades técnicas con una impresionante capacidad para adaptarse, colaborar y entregar resultados de alta calidad.
+
+        Recomiendo fuertemente a Sean para cualquier rol de desarrollo de software. Es el tipo de desarrollador que no solo entrega un trabajo excelente sino que también inspira colaboración y mejora continua en quienes lo rodean.
+      author:
+        name: Asa Bain
+        description: Tech Lead | Ingeniero de Software Senior @ Miller Development
+        to: https://www.linkedin.com/in/asa-bain-6bb980119/
+        avatar:
+          src: /avatars/testimonials/asa-bain-profile-image.jpeg

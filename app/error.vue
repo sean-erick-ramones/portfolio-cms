@@ -8,32 +8,38 @@ defineProps({
   }
 })
 
+const { t } = useI18n()
+const navLinks = useNavLinks()
+const { locale, collectionName } = useLocaleContent()
+
 useHead({
   htmlAttrs: {
-    lang: 'en'
+    lang: locale
   }
 })
 
 useSeoMeta({
-  title: 'Page not found',
-  description: 'We are sorry but this page could not be found.'
+  title: t('error.title'),
+  description: t('error.description')
 })
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
-  useAsyncData('navigation', () => {
+  useAsyncData(`err-navigation-${locale.value}`, () => {
     return Promise.all([
-      queryCollectionNavigation('blog')
+      queryCollectionNavigation(collectionName('blog'))
     ])
   }, {
-    transform: data => data.flat()
+    transform: data => data.flat(),
+    watch: [locale]
   }),
-  useLazyAsyncData('search', () => {
+  useLazyAsyncData(`err-search-${locale.value}`, () => {
     return Promise.all([
-      queryCollectionSearchSections('blog')
+      queryCollectionSearchSections(collectionName('blog'))
     ])
   }, {
     server: false,
-    transform: data => data.flat()
+    transform: data => data.flat(),
+    watch: [locale]
   })
 ])
 </script>

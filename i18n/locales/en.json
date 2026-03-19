@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "blog": {
+    "readArticle": "Read Article",
+    "minRead": "MIN READ",
+    "copyLink": "Copy link",
+    "linkCopied": "Article link copied to clipboard",
+    "backToBlog": "Blog"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "unavailable": "Not available at the moment"
+  },
+  "error": {
+    "title": "Page not found",
+    "description": "We are sorry but this page could not be found."
+  },
+  "colorMode": {
+    "switchTo": "Switch to {mode} mode"
+  },
+  "about": {
+    "nowOpenTo": "Now / Open to"
+  }
+}

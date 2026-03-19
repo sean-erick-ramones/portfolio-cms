@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { IndexEnCollectionItem } from '@nuxt/content'
 
 const { global } = useAppConfig()
+const { t } = useI18n()
 
 const props = defineProps<{
-  page: IndexCollectionItem
+  page: IndexEnCollectionItem
 }>()
 
 const snsLinks = computed(() => props.page.snsLinks ?? [])
@@ -126,7 +127,7 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
             class="gap-2"
             target="_blank"
             :to="(page.now?.available ?? global.available) ? (page.now?.meetingLink || global.meetingLink) : ''"
-            :label="(page.now?.available ?? global.available) ? 'Available for new projects' : 'Not available at the moment'"
+            :label="(page.now?.available ?? global.available) ? t('hero.available') : t('hero.unavailable')"
           >
             <template #leading>
               <span class="relative flex size-2">

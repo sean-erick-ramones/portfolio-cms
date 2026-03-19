@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { IndexEnCollectionItem } from '@nuxt/content'
 
 defineProps<{
-  page: IndexCollectionItem
+  page: IndexEnCollectionItem
 }>()
 
-const { data: posts } = await useAsyncData('index-blogs', () =>
-  queryCollection('blog').order('date', 'DESC').limit(3).all()
-)
+const { t } = useI18n()
+const { locale, collectionName } = useLocaleContent()
+
+const { data: posts } = await useAsyncData(`index-blogs-${locale.value}`, () =>
+  queryCollection(collectionName('blog')).order('date', 'DESC').limit(3).all()
+, {
+  watch: [locale]
+})
 if (!posts.value) {
   throw createError({ statusCode: 404, statusMessage: 'blogs posts not found', fatal: true })
 }
@@ -45,7 +50,7 @@ if (!posts.value) {
             size="xs"
             variant="link"
             class="px-0 gap-0"
-            label="Read Article"
+            :label="t('blog.readArticle')"
           >
             <template #trailing>
               <UIcon

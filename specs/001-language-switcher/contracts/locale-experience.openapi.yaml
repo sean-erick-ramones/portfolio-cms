@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  title: Language Switcher Experience Contract
+  version: 0.1.0
+  description: >-
+    Logical contract for locale selection and localized content resolution in the
+    portfolio application. This contract documents the expected behavior between
+    the UI layer, locale preference handling, and localized content retrieval.
+servers:
+  - url: https://www.seancramones.com
+paths:
+  /preferences/locale:
+    get:
+      summary: Resolve the active locale preference for the current browser session
+      operationId: getLocalePreference
+      responses:
+        '200':
+          description: Active locale preference resolved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalePreference'
+    put:
+      summary: Update the active locale preference
+      operationId: updateLocalePreference
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - locale
+              properties:
+                locale:
+                  $ref: '#/components/schemas/LocaleCode'
+      responses:
+        '204':
+          description: Locale preference updated and will be applied to subsequent navigations
+        '400':
+          description: Unsupported locale requested
+  /{locale}/blog/{slug}:
+    get:
+      summary: Resolve a localized blog document for a locale-prefixed route
+      operationId: getLocalizedBlogDocument
+      parameters:
+        - name: locale
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocaleCode'
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Localized blog document resolved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalizedContentDocument'
+        '302':
+          description: Localized content missing and visitor is redirected or resolved through fallback behavior
+        '404':
+          description: No matching document exists in either the requested locale or the English fallback locale
+  /blog/{slug}:
+    get:
+      summary: Resolve a default-locale blog document without locale prefix
+      operationId: getDefaultLocaleBlogDocument
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: English blog document resolved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalizedContentDocument'
+        '404':
+          description: English blog document not found
+components:
+  schemas:
+    LocaleCode:
+      type: string
+      enum:
+        - en
+        - es
+    LocalePreference:
+      type: object
+      required:
+        - locale
+        - source
+        - persisted
+      properties:
+        locale:
+          $ref: '#/components/schemas/LocaleCode'
+        source:
+          type: string
+          enum:
+            - default
+            - explicit
+        persisted:
+          type: boolean
+    LocalizedContentDocument:
+      type: object
+      required:
+        - locale
+        - path
+        - contentKey
+        - fallbackApplied
+      properties:
+        locale:
+          $ref: '#/components/schemas/LocaleCode'
+        path:
+          type: string
+        contentKey:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        fallbackApplied:
+          type: boolean
+        fallbackLocale:
+          allOf:
+            - $ref: '#/components/schemas/LocaleCode'
+          nullable: true

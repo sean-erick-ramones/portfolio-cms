@@ -17,35 +17,5 @@ export default defineAppConfig({
         description: 'mt-2 text-md mx-auto max-w-2xl text-pretty sm:text-md text-muted'
       }
     }
-  },
-  footer: {
-    credits: `Built with Nuxt UI • © ${new Date().getFullYear()}`,
-    colorMode: false,
-    links: [
-      {
-        'icon': 'i-simple-icons-linkedin',
-        'to': 'https://www.linkedin.com/in/sean-erick-ramones-102a64192/',
-        'target': '_blank',
-        'aria-label': 'Sean Erick Ramones on Linkedin'
-      },
-      {
-        'icon': 'i-simple-icons-github',
-        'to': 'https://github.com/sean-erick-ramones',
-        'target': '_blank',
-        'aria-label': 'Sean Erick Ramones on GitHub'
-      },
-      {
-        'icon': 'i-simple-icons-x',
-        'to': 'https://x.com/ramones_sean',
-        'target': '_blank',
-        'aria-label': 'Nuxt on X'
-      },
-      {
-        'icon': 'i-simple-icons-instagram',
-        'to': 'https://www.instagram.com/sean.e.ramz',
-        'target': '_blank',
-        'aria-label': 'Sean Erick Ramones on Instagram'
-      }
-    ]
   }
 })

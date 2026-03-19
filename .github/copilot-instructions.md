@@ -104,6 +104,8 @@ Uses `motion-v` for animations. Common pattern:
 ## Active Technologies
 - TypeScript 5.x, Vue 3 (Composition API), Nuxt 4.1 + @nuxt/content (file-based CMS), @vercel/blob (blob storage), @nuxt/ui (components), motion-v (animations)
 - Vercel Blob storage for static assets (videos and images)
+- TypeScript 5.9, Vue 3 Composition API, Nuxt 4.4.2 + `@nuxt/ui` 4.5.1, `@nuxt/content` 3.12.0, `@nuxtjs/i18n` 10.2.3, `motion-v` 1.10.3 (001-language-switcher)
+- File-based YAML/Markdown content in `/home/seancramones/pet-projects/ramones-portfolio-cms/content`, locale message JSON in `/home/seancramones/pet-projects/ramones-portfolio-cms/i18n/locales`, browser-persisted locale preference via Nuxt i18n cookie (001-language-switcher)
 
 ## Recent Changes
 - Migrated from NuxtHub/Cloudflare to Vercel deployment

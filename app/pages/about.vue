@@ -1,6 +1,10 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData(`about-page`, () => {
-  return queryCollection('about').first()
+const { locale, collectionName } = useLocaleContent()
+
+const { data: page } = await useAsyncData(`about-page-${locale.value}`, () => {
+  return queryCollection(collectionName('about')).first()
+}, {
+  watch: [locale]
 })
 
 if (!page.value) {

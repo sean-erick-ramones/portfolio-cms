@@ -1,16 +1,27 @@
 <script setup lang="ts">
-const route = useRoute()
+import { withLeadingSlash } from 'ufo'
 
-const { data: page } = await useAsyncData(route.path, () =>
-  queryCollection('blog').path(route.path).first()
-)
+const { t, locale } = useI18n()
+const { collectionName } = useLocaleContent()
+const route = useRoute()
+const { copyToClipboard } = useClipboard()
+
+const slug = computed(() => '/blog' + withLeadingSlash(Array.isArray(route.params.slug) ? route.params.slug.join('/') : String(route.params.slug)))
+
+const { data: page } = await useAsyncData(`blog-${slug.value}-${locale.value}`, () =>
+  queryCollection(collectionName('blog')).path(slug.value).first()
+, {
+  watch: [locale]
+})
 
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
-  queryCollectionItemSurroundings('blog', route.path, {
+const { data: surround } = await useAsyncData(`blog-${slug.value}-surround-${locale.value}`, () =>
+  queryCollectionItemSurroundings(collectionName('blog'), slug.value, {
     fields: ['description']
   })
-)
+, {
+  watch: [locale]
+})
 
 const siteUrl = 'https://www.seancramones.com'
 const title = page.value?.seo?.title || page.value?.title
@@ -48,8 +59,10 @@ const articleLink = computed(() => {
   return ''
 })
 
+const localePath = useLocalePath()
+
 const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
+  return new Date(dateString).toLocaleDateString(locale.value === 'es' ? 'es-ES' : 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
@@ -62,11 +75,11 @@ const formatDate = (dateString: string) => {
     <UContainer class="relative min-h-screen">
       <UPage v-if="page">
         <ULink
-          to="/blog"
+          :to="localePath('/blog')"
           class="text-sm flex items-center gap-1"
         >
           <UIcon name="lucide:chevron-left" />
-          Blog
+          {{ t('blog.backToBlog') }}
         </ULink>
         <div class="flex flex-col gap-3 mt-8">
           <div class="flex text-xs text-muted items-center justify-center gap-2">
@@ -77,7 +90,7 @@ const formatDate = (dateString: string) => {
               -
             </span>
             <span v-if="page.minRead">
-              {{ page.minRead }} MIN READ
+              {{ page.minRead }} {{ t('blog.minRead') }}
             </span>
           </div>
           <img
@@ -112,8 +125,8 @@ const formatDate = (dateString: string) => {
               size="sm"
               variant="link"
               color="neutral"
-              label="Copy link"
-              @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
+              :label="t('blog.copyLink')"
+              @click="copyToClipboard(articleLink, t('blog.linkCopied'))"
             />
           </div>
           <UContentSurround :surround />
