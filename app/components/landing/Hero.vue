@@ -235,13 +235,17 @@ const imageColumns = computed(() => {
           :overlay="false"
           class="flex-1 [--duration:30s] [--gap:--spacing(4)]"
         >
-          <NuxtImg
+          <UTooltip
             v-for="(img, index) in imageColumns[0]"
             :key="`0-${index}`"
-            loading="lazy"
-            class="w-full h-[200px] object-contain p-4 bg-white rounded-lg shadow-md"
-            v-bind="img"
-          />
+            :text="img.alt"
+          >
+            <NuxtImg
+              loading="lazy"
+              class="w-full h-[200px] object-contain p-4 bg-white rounded-lg"
+              v-bind="img"
+            />
+          </UTooltip>
         </UMarquee>
         <UMarquee
           reverse
@@ -249,26 +253,34 @@ const imageColumns = computed(() => {
           :overlay="false"
           class="flex-1 [--duration:30s] [--gap:--spacing(4)]"
         >
-          <NuxtImg
+          <UTooltip
             v-for="(img, index) in imageColumns[1]"
             :key="`1-${index}`"
-            loading="lazy"
-            class="w-full h-[200px] object-contain p-4 bg-white rounded-lg shadow-md"
-            v-bind="img"
-          />
+            :text="img.alt"
+          >
+            <NuxtImg
+              loading="lazy"
+              class="w-full h-[200px] object-contain p-4 bg-white rounded-lg"
+              v-bind="img"
+            />
+          </UTooltip>
         </UMarquee>
         <UMarquee
           orientation="vertical"
           :overlay="false"
           class="flex-1 [--duration:30s] [--gap:--spacing(4)]"
         >
-          <NuxtImg
+          <UTooltip
             v-for="(img, index) in imageColumns[2]"
             :key="`2-${index}`"
-            loading="lazy"
-            class="w-full h-[200px] object-contain p-4 bg-white rounded-lg shadow-md"
-            v-bind="img"
-          />
+            :text="img.alt"
+          >
+            <NuxtImg
+              loading="lazy"
+              class="w-full h-[200px] object-contain p-4 bg-white rounded-lg"
+              v-bind="img"
+            />
+          </UTooltip>
         </UMarquee>
       </div>
     </div>
