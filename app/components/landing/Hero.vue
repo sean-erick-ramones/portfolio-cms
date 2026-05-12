@@ -13,6 +13,30 @@ const imageColumns = computed(() => {
   const imgs = props.page.hero.images ?? [];
   return [0, 1, 2].map((c) => imgs.filter((_, i) => i % 3 === c));
 });
+
+const typedRoleEl = ref<HTMLElement | null>(null);
+let typeitInstance: { destroy: () => void } | null = null;
+
+onMounted(async () => {
+  if (!typedRoleEl.value) return;
+  const TypeIt = (await import("typeit")).default;
+  typedRoleEl.value.textContent = "";
+  typeitInstance = new TypeIt(typedRoleEl.value, {
+    strings: props.page.hero.roles,
+    speed: 80,
+    deleteSpeed: 40,
+    nextStringDelay: 2500,
+    startDelay: 600,
+    loop: true,
+    breakLines: false,
+    cursor: true,
+    waitUntilVisible: true,
+  }).go();
+});
+
+onBeforeUnmount(() => {
+  typeitInstance?.destroy();
+});
 </script>
 
 <template>
@@ -68,7 +92,9 @@ const imageColumns = computed(() => {
           delay: 0.1,
         }"
       >
-        {{ page.title }}
+        <span>{{ page.hero.titlePrefix }} </span>
+        <br />
+        <span ref="typedRoleEl" class="italic">{{ page.hero.roles[0] }}</span>
       </Motion>
     </template>
 

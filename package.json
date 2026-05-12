@@ -23,7 +23,8 @@
     "@vueuse/nuxt": "^13.9.0",
     "motion-v": "^1.10.3",
     "nuxt": "^4.4.4",
-    "nuxt-studio": "^1.7.0"
+    "nuxt-studio": "^1.7.0",
+    "typeit": "^8.8.7"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.15.2",
@@ -36,5 +37,15 @@
   "resolutions": {
     "unimport": "4.1.1"
   },
-  "packageManager": "pnpm@11.0.9"
+  "packageManager": "pnpm@11.0.9",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild",
+      "sharp",
+      "typeit",
+      "unrs-resolver",
+      "vue-demi"
+    ]
+  }
 }

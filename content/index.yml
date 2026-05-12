@@ -108,6 +108,12 @@ faq:
           content: |
             Vue 3, Nuxt, Node.js, FastAPI, PostgreSQL/Supabase, and modern tooling (Vite, GitHub, CI/CD). Day-to-day I lean on **Claude Code**, **MCP servers**, the **Claude Agent SDK**, and the **Anthropic API** for agentic delivery. Pragmatic — I pick the right tool for the job.
 hero:
+  titlePrefix: "Hi! I'm Sean Erick."
+  roles:
+    - Full-Stack Engineer
+    - AI Product Engineer
+    - AI Solutions Architect
+    - Agentic Workflow Developer
   links:
     - label: Download Resume
       to: /documents/sean-ramones-resume-v2.pdf

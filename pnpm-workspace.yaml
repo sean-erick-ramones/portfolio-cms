@@ -8,3 +8,4 @@ allowBuilds:
   unrs-resolver: false
   vue-demi: false
   sharp: true
+  typeit: true

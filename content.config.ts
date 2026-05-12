@@ -50,7 +50,9 @@ export default defineContentConfig({
         snsLinks: z.array(createButtonSchema()),
         hero: z.object({
           links: z.array(createButtonSchema()),
-          images: z.array(createImageSchema())
+          images: z.array(createImageSchema()),
+          titlePrefix: z.string().nonempty(),
+          roles: z.array(z.string().nonempty()).min(1)
         }),
         about: createBaseSchema(),
         now: z.object({
