@@ -4,9 +4,9 @@ profileImage:
   src: /avatars/profile-image-2.png
   alt: Sean Erick C. Ramones
 content: |
-  Hi, I'm **Sean Erick Ramones**, a full‑stack software engineer with over 7 years of experience building modern, performant web applications.
+  Hi, I'm **Sean Erick Ramones**, an AI-augmented full‑stack software engineer with over 7 years of experience building modern, performant web applications.
 
-  I focus on turning complex ideas into elegant, scalable products where design consistency, performance, and developer experience all click. On the frontend I prefer **Vue 3** and **Nuxt**; on the backend **Node.js** and **FastAPI**; for data, **PostgreSQL/Supabase**; and I deploy to modern serverless/cloud platforms like **Vercel** and **Cloudflare**.
+  I focus on turning complex ideas into elegant, scalable products — pairing deep frontend craft (**Vue 3**, **Nuxt**), backend systems work (**Node.js**, **FastAPI**), data (**PostgreSQL/Supabase**), and serverless deploys (**Vercel**, **Cloudflare**) with agentic AI tooling: **Claude Code**, **MCP**, the **Claude Agent SDK**, and the **Anthropic API**. Most of my hands-on manual work now flows through AI hand-offs while I drive architecture, judgment, and review.
 
   ### What I care about
 

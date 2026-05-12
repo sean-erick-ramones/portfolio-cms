@@ -80,6 +80,15 @@ export default defineContentConfig({
           items: z.array(createTestimonialSchema())
         }),
         blog: createBaseSchema(),
+        aiWorkflows: createBaseSchema().extend({
+          items: z.array(z.object({
+            title: z.string(),
+            description: z.string(),
+            icon: z.string().optional(),
+            tools: z.array(z.string()).optional(),
+            link: z.string().optional()
+          }))
+        }).optional(),
         faq: createBaseSchema().extend({
           categories: z.array(
             z.object({

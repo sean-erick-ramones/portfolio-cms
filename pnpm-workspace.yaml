@@ -1,10 +1,10 @@
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - unrs-resolver
-  - vue-demi
-
-onlyBuiltDependencies:
-  - better-sqlite3
-  - workerd
+shamefullyHoist: true
+allowBuilds:
+  better-sqlite3: true
+  workerd: true
+  '@parcel/watcher': false
+  '@tailwindcss/oxide': false
+  esbuild: false
+  unrs-resolver: false
+  vue-demi: false
+  sharp: true

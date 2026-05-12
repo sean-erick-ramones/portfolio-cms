@@ -109,22 +109,38 @@ useHead({
             </span>
           </template>
           <template #footer>
-            <ULink
-              :to="project.url"
-              class="text-sm text-primary flex items-center"
-            >
-              View Project
-              <UIcon
-                name="i-lucide-arrow-right"
-                class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
-              />
-            </ULink>
+            <div class="flex flex-col gap-3">
+              <div
+                v-if="project.tags?.length"
+                class="flex flex-wrap gap-1.5"
+              >
+                <span
+                  v-for="tag in project.tags"
+                  :key="tag"
+                  class="px-2 py-0.5 rounded-full text-xs"
+                  :class="tag === 'AI-Augmented' ? 'bg-primary/10 text-primary ring-1 ring-primary/30' : 'bg-elevated/60 text-muted'"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+              <ULink
+                :to="project.url"
+                class="text-sm text-primary flex items-center"
+              >
+                View Project
+                <UIcon
+                  name="i-lucide-arrow-right"
+                  class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                />
+              </ULink>
+            </div>
           </template>
-          <img
+          <NuxtImg
             :src="project.image"
             :alt="project.title"
             class="object-cover w-full h-48 rounded-lg"
-          >
+            loading="lazy"
+          />
         </UPageCard>
       </Motion>
     </UPageSection>

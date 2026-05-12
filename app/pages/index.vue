@@ -13,7 +13,7 @@ if (!page.value) {
 
 const siteUrl = 'https://www.seancramones.com'
 const title = page.value?.seo?.title || page.value?.title || 'Sean Erick C. Ramones'
-const description = page.value?.seo?.description || page.value?.description || 'Full-stack software engineer specializing in Vue.js, Nuxt, and modern web technologies.'
+const description = page.value?.seo?.description || page.value?.description || 'AI-Augmented Full-stack Engineer building modern web apps with Vue/Nuxt, Node.js, FastAPI, Claude Code, MCP, and agentic workflows.'
 const ogImage = `${siteUrl}/og-image.png`
 
 useSeoMeta({
@@ -50,6 +50,7 @@ useHead({
       <LandingWorkExperience :page />
     </UPageSection>
     <LandingBlog :page />
+    <LandingAIWorkflows :page />
     <LandingTestimonials :page />
     <LandingFAQ :page />
   </UPage>

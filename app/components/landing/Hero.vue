@@ -35,13 +35,14 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
           delay: 0.1
         }"
       >
-        <img
+        <NuxtImg
           class="size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg) rounded-full"
           :src="page.profileImage.src"
           :alt="page.profileImage.alt"
           width="72"
           height="72"
-        >
+          loading="eager"
+        />
       </Motion>
     </template>
 
@@ -221,13 +222,14 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
           delay: index * 0.1
         }"
       >
-        <img
+        <NuxtImg
           width="234"
           height="234"
+          loading="lazy"
           class="object-cover p-2 bg-white rounded-lg aspect-square"
           :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
           v-bind="img"
-        >
+        />
       </Motion>
     </UMarquee>
   </UPageHero>

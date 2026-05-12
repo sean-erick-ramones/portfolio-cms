@@ -1,13 +1,34 @@
-title: Hi! I'm Sean Erick Ramones, a Software Engineer
+title: Hi! I'm Sean Erick Ramones, an AI-Augmented Full-stack Engineer
 about:
   title: About Me
   description: |
-    As a full-stack software engineer with over 7 years of experience, I specialize in building modern, performant web applications with a strong focus on usability and design consistency.
-    My approach blends technical depth with user-centered thinking—translating complex ideas into scalable, accessible digital products that balance functionality, performance, and great user experience.
+    As an AI-augmented full-stack software engineer with over 7 years of experience, I build modern, performant web applications and pair them with agentic workflows that compress delivery time without compromising quality.
+    I blend deep frontend craft, backend systems work, and AI tooling — Claude Code, MCP, the Claude Agent SDK, and the Anthropic API — to ship products that are scalable, accessible, and developer-friendly.
 blog:
   title: Latest Articles
   description: Some of my recent thoughts
-description: I create intuitive, scalable applications where design meets functionality, turning complex ideas into seamless user experiences.
+aiWorkflows:
+  title: AI-Augmented Workflows
+  description: How I ship faster without cutting corners — agentic tooling paired with engineering judgment, not replacing it.
+  items:
+    - title: Agentic delivery with Claude Code
+      description: I hand off boilerplate, refactors, and test scaffolding to Claude Code while driving architecture and review. Faster cycles, same bar for quality.
+      tools:
+        - Claude Code
+      icon: i-simple-icons-anthropic
+    - title: MCP servers for project context
+      description: Custom MCP servers expose project schemas, design tokens, and internal docs to AI tools — so suggestions match the codebase, not generic patterns.
+      tools:
+        - MCP
+        - TypeScript
+      icon: i-lucide-server
+    - title: Anthropic API in production
+      description: Claude-powered features wired into real Vue/Nuxt and FastAPI backends — structured outputs, tool use, and prompt caching tuned for production.
+      tools:
+        - Anthropic API
+        - Claude Agent SDK
+      icon: i-lucide-sparkles
+description: I build full-stack products augmented by agentic AI — turning complex ideas into seamless experiences faster, with Claude-powered workflows guiding design, code, and delivery.
 experience:
   title: Work Experience
   items:
@@ -17,7 +38,7 @@ experience:
         name: Miller Development AB
         logo: i-lucide-code-xml
         url: https://millerdevelopment.se
-      description: Led full-stack development across international clients, progressing from mid-level to Vue SME while building scalable dashboards, HR SaaS products, and ML-integrated platforms using Vue, Nuxt, Node.js, FastAPI, and serverless architecture.
+      description: Led full-stack delivery across international clients, evolving from frontend SME to AI-augmented full-stack engineer — building HR SaaS, ML-integrated platforms, and dashboards using Vue/Nuxt, Node.js, FastAPI, and serverless infra, with Claude Code and MCP servers driving day-to-day agentic workflows.
       index: 2
     - position: Full-stack Software Developer
       date: Jun 2018 - Apr 2019
@@ -63,7 +84,7 @@ faq:
             I primarily work in UTC+8 and can align to overlapping hours for teams in other timezones. I’m comfortable with remote and hybrid collaboration, async workflows, and scheduled syncs for key milestones.
         - label: What roles are you looking for?
           content: |
-            Primarily **Full‑stack Software Engineer** or **Frontend Engineer (Vue/Nuxt)** roles. I’m comfortable working with React when needed and I’m open to senior IC positions, hands‑on tech leadership, and platform‑focused full‑stack work.
+            Primarily **AI-Augmented Full-stack Engineer** roles, including **Senior Full-stack** or **Frontend (Vue/Nuxt)** positions with AI/agentic scope. I'm comfortable with React and open to senior IC, hands-on tech leadership, and platform/AI-tooling-focused work.
         - label: What’s your notice period?
           content: |
             Typically **1–3 weeks**, depending on active workload and handover requirements. I’ll align timelines to ensure a smooth transition.
@@ -83,7 +104,7 @@ faq:
             Turning complex ideas into scalable, well‑designed products that feel effortless to use. I love shaping systems where design consistency, performance, and developer experience work together.
         - label: What tech do you prefer working with?
           content: |
-            Vue 3, Nuxt, Node.js, FastAPI, PostgreSQL/Supabase, and modern tooling (Vite, GitHub, CI/CD). I’m pragmatic and will choose the right tool for the job.
+            Vue 3, Nuxt, Node.js, FastAPI, PostgreSQL/Supabase, and modern tooling (Vite, GitHub, CI/CD). Day-to-day I lean on **Claude Code**, **MCP servers**, the **Claude Agent SDK**, and the **Anthropic API** for agentic delivery. Pragmatic — I pick the right tool for the job.
 hero:
   links:
     - label: Download Resume
@@ -120,6 +141,14 @@ hero:
       alt: Jira logo
     - src: /hero/github-copilot.png
       alt: GitHub Copilot logo
+    - src: /hero/claude-code.png
+      alt: Claude Code logo
+    - src: /hero/mcp.png
+      alt: Model Context Protocol logo
+    - src: /hero/claude-agent-sdk.png
+      alt: Claude Agent SDK logo
+    - src: /hero/anthropic.png
+      alt: Anthropic logo
 now:
   openTo:
     - Full-time
@@ -131,8 +160,8 @@ profileImage:
   src: /avatars/profile-image-1.png
   alt: Profile image of Sean Erick Ramones
 seo:
-  title: Sean Erick C. Ramones | Full-stack Software Engineer
-  description: Welcome to my portfolio! I'm Sean Erick Ramones, and I build digital solutions that are both beautiful and functional.
+  title: Sean Erick C. Ramones | AI-Augmented Full-stack Engineer
+  description: Sean Erick Ramones — AI-Augmented Full-stack Engineer. I build modern web apps with Vue/Nuxt, Node.js, FastAPI, and ship faster with Claude Code, MCP, and agentic workflows.
 snsLinks:
   - icon: i-simple-icons-linkedin
     to: https://www.linkedin.com/in/sean-erick-ramones-102a64192

@@ -1,4 +1,4 @@
-# Ramones Portfolio CMS
+# Portfolio CMS
 
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.1-00DC82?logo=nuxt&labelColor=020420)](https://nuxt.com) [![Nuxt UI](https://img.shields.io/badge/UI-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com) ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white) ![pnpm](https://img.shields.io/badge/pnpm-10.x-F69220?logo=pnpm&logoColor=white) [![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.seancramones.com)](https://www.seancramones.com) [![CI](https://github.com/sean-erick-ramones/ramones-portfolio-cms/actions/workflows/ci.yml/badge.svg)](https://github.com/sean-erick-ramones/ramones-portfolio-cms/actions/workflows/ci.yml)
 

@@ -14,25 +14,27 @@
     "blog:update-file": "node scripts/update-blog-frontmatter.mjs"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.68",
-    "@iconify-json/simple-icons": "^1.2.54",
-    "@nuxt/content": "^3.7.1",
-    "@nuxt/ui": "^4.0.1",
-    "@vercel/blob": "^2.0.0",
+    "@iconify-json/lucide": "^1.2.106",
+    "@iconify-json/simple-icons": "^1.2.81",
+    "@nuxt/content": "^3.13.0",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/ui": "^4.7.1",
+    "@vercel/blob": "^2.3.3",
     "@vueuse/nuxt": "^13.9.0",
-    "motion-v": "^1.7.2",
-    "nuxt": "^4.1.2",
-    "nuxt-studio": "1.0.0-alpha.1"
+    "motion-v": "^1.10.3",
+    "nuxt": "^4.4.4",
+    "nuxt-studio": "^1.7.0"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.9.0",
-    "dotenv": "^17.2.3",
-    "eslint": "^9.37.0",
+    "@nuxt/eslint": "^1.15.2",
+    "better-sqlite3": "^12.9.0",
+    "dotenv": "^17.4.2",
+    "eslint": "^9.39.4",
     "typescript": "^5.9.3",
-    "vue-tsc": "^3.1.0"
+    "vue-tsc": "^3.2.8"
   },
   "resolutions": {
     "unimport": "4.1.1"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@11.0.9"
 }

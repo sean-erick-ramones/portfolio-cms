@@ -38,6 +38,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/content',
+    '@nuxt/image',
     '@vueuse/nuxt',
     'motion-v/nuxt',
     'nuxt-studio'
