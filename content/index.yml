@@ -123,6 +123,8 @@ hero:
       alt: Nuxt logo
     - src: /hero/react.png
       alt: React logo
+    - src: /hero/angular.png
+      alt: Angular logo
     - src: /hero/postgres.png
       alt: PostgreSQL logo
     - src: /hero/supabase.png
@@ -147,6 +149,8 @@ hero:
       alt: Model Context Protocol logo
     - src: /hero/claude-agent-sdk.png
       alt: Claude Agent SDK logo
+    - src: /hero/claude-design.png
+      alt: Claude Design logo
     - src: /hero/anthropic.png
       alt: Anthropic logo
 now:

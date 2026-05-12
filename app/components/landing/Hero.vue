@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { IndexCollectionItem } from "@nuxt/content";
 
-const { global } = useAppConfig()
+const { global } = useAppConfig();
 
 const props = defineProps<{
-  page: IndexCollectionItem
-}>()
+  page: IndexCollectionItem;
+}>();
 
-const snsLinks = computed(() => props.page.snsLinks ?? [])
+const snsLinks = computed(() => props.page.snsLinks ?? []);
+
+const imageColumns = computed(() => {
+  const imgs = props.page.hero.images ?? [];
+  return [0, 1, 2].map((c) => imgs.filter((_, i) => i % 3 === c));
+});
 </script>
 
 <template>
@@ -15,7 +20,7 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
     :ui="{
       headline: 'flex items-center justify-center',
       title: 'text-shadow-md max-w-lg mx-auto',
-      links: 'mt-4 flex-col justify-center items-center'
+      links: 'mt-4 flex-col justify-center items-center',
     }"
   >
     <template #headline>
@@ -23,16 +28,16 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
         }"
       >
         <NuxtImg
@@ -51,16 +56,16 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
         }"
       >
         {{ page.title }}
@@ -72,16 +77,16 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.3
+          delay: 0.3,
         }"
       >
         {{ page.description }}
@@ -93,16 +98,16 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.5
+          delay: 0.5,
         }"
       >
         <div
@@ -119,25 +124,44 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
               target="_blank"
               download
               class="text-center w-full"
-            >{{ link.label }}</a>
+              >{{ link.label }}</a
+            >
           </UButton>
           <UButton
-            :color="(page.now?.available ?? global.available) ? 'success' : 'error'"
+            :color="
+              (page.now?.available ?? global.available) ? 'success' : 'error'
+            "
             variant="ghost"
             class="gap-2"
             target="_blank"
-            :to="(page.now?.available ?? global.available) ? (page.now?.meetingLink || global.meetingLink) : ''"
-            :label="(page.now?.available ?? global.available) ? 'Available for new projects' : 'Not available at the moment'"
+            :to="
+              (page.now?.available ?? global.available)
+                ? page.now?.meetingLink || global.meetingLink
+                : ''
+            "
+            :label="
+              (page.now?.available ?? global.available)
+                ? 'Available for new projects'
+                : 'Not available at the moment'
+            "
           >
             <template #leading>
               <span class="relative flex size-2">
                 <span
                   class="absolute inline-flex rounded-full opacity-75 size-full"
-                  :class="(page.now?.available ?? global.available) ? 'bg-success animate-ping' : 'bg-error'"
+                  :class="
+                    (page.now?.available ?? global.available)
+                      ? 'bg-success animate-ping'
+                      : 'bg-error'
+                  "
                 />
                 <span
                   class="relative inline-flex scale-90 rounded-full size-2"
-                  :class="(page.now?.available ?? global.available) ? 'bg-success' : 'bg-error'"
+                  :class="
+                    (page.now?.available ?? global.available)
+                      ? 'bg-success'
+                      : 'bg-error'
+                  "
                 />
               </span>
             </template>
@@ -152,19 +176,21 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
           :initial="{
             scale: 1.1,
             opacity: 0,
-            filter: 'blur(20px)'
+            filter: 'blur(20px)',
           }"
           :animate="{
             scale: 1,
             opacity: 1,
-            filter: 'blur(0px)'
+            filter: 'blur(0px)',
           }"
           :transition="{
             duration: 0.6,
-            delay: 0.5 + index * 0.1
+            delay: 0.5 + index * 0.1,
           }"
         >
-          <UButton v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }" />
+          <UButton
+            v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }"
+          />
         </Motion>
       </div>
 
@@ -174,16 +200,16 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.7
+          delay: 0.7,
         }"
       >
         <div class="mt-5 flex flex-col items-center gap-2">
@@ -200,37 +226,51 @@ const snsLinks = computed(() => props.page.snsLinks ?? [])
       </Motion>
     </template>
 
-    <UMarquee
-      pause-on-hover
-      class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
+    <div
+      class="relative w-full h-[500px] mt-8 -mx-8 sm:-mx-12 lg:-mx-16 overflow-hidden [perspective:500px]"
     >
-      <Motion
-        v-for="(img, index) in page.hero.images"
-        :key="index"
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: index * 0.1
-        }"
-      >
-        <NuxtImg
-          width="234"
-          height="234"
-          loading="lazy"
-          class="object-cover p-2 bg-white rounded-lg aspect-square"
-          :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
-          v-bind="img"
-        />
-      </Motion>
-    </UMarquee>
+      <div class="flex gap-4 h-[700px] origin-top [transform:rotateX(20deg)]">
+        <UMarquee
+          orientation="vertical"
+          :overlay="false"
+          class="flex-1 [--duration:30s] [--gap:--spacing(4)]"
+        >
+          <NuxtImg
+            v-for="(img, index) in imageColumns[0]"
+            :key="`0-${index}`"
+            loading="lazy"
+            class="w-full h-[200px] object-contain p-4 bg-white rounded-lg shadow-md"
+            v-bind="img"
+          />
+        </UMarquee>
+        <UMarquee
+          reverse
+          orientation="vertical"
+          :overlay="false"
+          class="flex-1 [--duration:30s] [--gap:--spacing(4)]"
+        >
+          <NuxtImg
+            v-for="(img, index) in imageColumns[1]"
+            :key="`1-${index}`"
+            loading="lazy"
+            class="w-full h-[200px] object-contain p-4 bg-white rounded-lg shadow-md"
+            v-bind="img"
+          />
+        </UMarquee>
+        <UMarquee
+          orientation="vertical"
+          :overlay="false"
+          class="flex-1 [--duration:30s] [--gap:--spacing(4)]"
+        >
+          <NuxtImg
+            v-for="(img, index) in imageColumns[2]"
+            :key="`2-${index}`"
+            loading="lazy"
+            class="w-full h-[200px] object-contain p-4 bg-white rounded-lg shadow-md"
+            v-bind="img"
+          />
+        </UMarquee>
+      </div>
+    </div>
   </UPageHero>
 </template>
