@@ -14,6 +14,23 @@ const imageColumns = computed(() => {
   return [0, 1, 2].map((c) => imgs.filter((_, i) => i % 3 === c));
 });
 
+const longestRole = computed(() => {
+  const roles = props.page.hero.roles ?? [];
+  return [...roles].sort((a, b) => b.length - a.length)[0] ?? "";
+});
+
+const articleFor = (s: string) =>
+  /^[aeiou]/i.test(s.trim()) ? "an" : "a";
+
+const currentRoleIndex = ref(
+  (props.page.hero.roles?.length ?? 1) - 1,
+);
+
+const currentArticle = computed(() => {
+  const roles = props.page.hero.roles ?? [];
+  return articleFor(roles[currentRoleIndex.value] ?? "");
+});
+
 const typedRoleEl = ref<HTMLElement | null>(null);
 let typeitInstance: { destroy: () => void } | null = null;
 
@@ -31,6 +48,11 @@ onMounted(async () => {
     breakLines: false,
     cursor: true,
     waitUntilVisible: true,
+    beforeString: () => {
+      const roles = props.page.hero.roles ?? [];
+      if (roles.length === 0) return;
+      currentRoleIndex.value = (currentRoleIndex.value + 1) % roles.length;
+    },
   }).go();
 });
 
@@ -92,9 +114,14 @@ onBeforeUnmount(() => {
           delay: 0.1,
         }"
       >
-        <span>{{ page.hero.titlePrefix }} </span>
-        <br />
-        <span ref="typedRoleEl" class="italic">{{ page.hero.roles[0] }}</span>
+        <span>{{ page.hero.titlePrefix }} {{ currentArticle }} </span>
+        <span class="relative inline-block align-baseline leading-[1.15]">
+          <span aria-hidden="true" class="invisible italic">{{ longestRole }}</span>
+          <span
+            ref="typedRoleEl"
+            class="italic absolute inset-0"
+          >{{ page.hero.roles[0] }}</span>
+        </span>
       </Motion>
     </template>
 
