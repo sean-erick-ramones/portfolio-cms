@@ -19,12 +19,9 @@ const longestRole = computed(() => {
   return [...roles].sort((a, b) => b.length - a.length)[0] ?? "";
 });
 
-const articleFor = (s: string) =>
-  /^[aeiou]/i.test(s.trim()) ? "an" : "a";
+const articleFor = (s: string) => (/^[aeiou]/i.test(s.trim()) ? "an" : "a");
 
-const currentRoleIndex = ref(
-  (props.page.hero.roles?.length ?? 1) - 1,
-);
+const currentRoleIndex = ref((props.page.hero.roles?.length ?? 1) - 1);
 
 const currentArticle = computed(() => {
   const roles = props.page.hero.roles ?? [];
@@ -116,11 +113,12 @@ onBeforeUnmount(() => {
       >
         <span>{{ page.hero.titlePrefix }} {{ currentArticle }} </span>
         <span class="relative inline-block align-baseline leading-[1.15]">
-          <span aria-hidden="true" class="invisible italic">{{ longestRole }}</span>
-          <span
-            ref="typedRoleEl"
-            class="italic absolute inset-0"
-          >{{ page.hero.roles[0] }}</span>
+          <span aria-hidden="true" class="invisible italic">{{
+            longestRole
+          }}</span>
+          <span ref="typedRoleEl" class="italic absolute inset-0">{{
+            page.hero.roles[0]
+          }}</span>
         </span>
       </Motion>
     </template>
@@ -279,8 +277,33 @@ onBeforeUnmount(() => {
       </Motion>
     </template>
 
-    <div
-      class="relative w-full h-[500px] mt-8 -mx-8 sm:-mx-12 lg:-mx-16 overflow-hidden [perspective:500px]"
+    <!-- Mobile: 3 horizontal marquees stacked (Testimonials style) -->
+    <div class="flex flex-col w-full min-w-0">
+      <UMarquee
+        v-for="(col, colIndex) in imageColumns"
+        :key="`m-${colIndex}`"
+        :reverse="colIndex % 2 === 1"
+        :overlay="true"
+        pause-on-hover
+        class="[--duration:25s] [--gap:--spacing(3)]"
+      >
+        <UTooltip
+          v-for="(img, index) in col"
+          :key="`m-${colIndex}-${index}`"
+          :text="img.alt"
+        >
+          <NuxtImg
+            loading="lazy"
+            class="h-22.5 w-22.5 object-contain p-3 bg-white rounded-lg"
+            v-bind="img"
+          />
+        </UTooltip>
+      </UMarquee>
+    </div>
+
+    <!-- Desktop md+: 3D tilted vertical columns -->
+    <!-- <div
+      class="hidden md:block relative w-full h-[500px] mt-8 -mx-8 sm:-mx-12 lg:-mx-16 overflow-hidden [perspective:500px]"
     >
       <div class="flex gap-4 h-[700px] origin-top [transform:rotateX(20deg)]">
         <UMarquee
@@ -336,6 +359,6 @@ onBeforeUnmount(() => {
           </UTooltip>
         </UMarquee>
       </div>
-    </div>
+    </div> -->
   </UPageHero>
 </template>
