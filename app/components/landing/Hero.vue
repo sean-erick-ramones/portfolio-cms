@@ -278,7 +278,7 @@ onBeforeUnmount(() => {
     </template>
 
     <!-- Mobile: 3 horizontal marquees stacked (Testimonials style) -->
-    <div class="flex flex-col w-full min-w-0">
+    <div class="flex flex-col w-full min-w-0 gap-4">
       <UMarquee
         v-for="(col, colIndex) in imageColumns"
         :key="`m-${colIndex}`"
