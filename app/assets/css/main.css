@@ -4,8 +4,21 @@
 @source "../../../content/**/*";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
-  --font-serif: 'Instrument Serif', serif;
+  --font-sans: "Public Sans", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  /* Custom color theme */
+  --color-matcha-50: #f6faec;
+  --color-matcha-100: #eaf3cf;
+  --color-matcha-200: #d4e69e;
+  --color-matcha-300: #b6d36a;
+  --color-matcha-400: #9fc451;
+  --color-matcha-500: #8fb84a;
+  --color-matcha-600: #6f9436;
+  --color-matcha-700: #56732b;
+  --color-matcha-800: #455c25;
+  --color-matcha-900: #3a4d21;
+  --color-matcha-950: #1d2810;
 }
 
 :root {

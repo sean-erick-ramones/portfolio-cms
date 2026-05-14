@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
           </UButton>
           <UButton
             :color="
-              (page.now?.available ?? global.available) ? 'success' : 'error'
+              (page.now?.available ?? global.available) ? 'primary' : 'error'
             "
             variant="ghost"
             class="gap-2"
@@ -202,7 +202,7 @@ onBeforeUnmount(() => {
                   class="absolute inline-flex rounded-full opacity-75 size-full"
                   :class="
                     (page.now?.available ?? global.available)
-                      ? 'bg-success animate-ping'
+                      ? 'bg-primary animate-ping'
                       : 'bg-error'
                   "
                 />
@@ -210,7 +210,7 @@ onBeforeUnmount(() => {
                   class="relative inline-flex scale-90 rounded-full size-2"
                   :class="
                     (page.now?.available ?? global.available)
-                      ? 'bg-success'
+                      ? 'bg-primary'
                       : 'bg-error'
                   "
                 />

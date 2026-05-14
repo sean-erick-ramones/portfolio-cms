@@ -17,6 +17,7 @@ aiWorkflows:
         - Claude Code
         - Claude Design
       icon: i-simple-icons-anthropic
+      link: https://claude.com/product/overview
     - title: MCP servers for project context
       description: Custom MCP servers — including Figma MCP — expose design tokens, component specs, project schemas, and internal docs directly to AI tools, so suggestions stay grounded in the actual codebase and design system, not generic patterns.
       tools:
@@ -24,12 +25,14 @@ aiWorkflows:
         - Figma MCP
         - TypeScript
       icon: i-lucide-server
+      link: https://www.figma.com/ai/our-approach/
     - title: Anthropic API in production
       description: Claude-powered features wired into real Vue/Nuxt and FastAPI backends — structured outputs, tool use, and prompt caching tuned for production.
       tools:
         - Anthropic API
         - Claude Agent SDK
       icon: i-lucide-sparkles
+      link: https://code.claude.com/docs/en/agent-sdk/overview
 description: I build full-stack products augmented by agentic AI — turning complex ideas into seamless experiences faster, with Claude-powered workflows guiding design, code, and delivery.
 experience:
   title: Work Experience
